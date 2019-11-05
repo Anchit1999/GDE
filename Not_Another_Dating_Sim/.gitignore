@@ -1,2 +1,3 @@
-**/game/cache
-**/game/saves
+./log.txt
+**/game/cache/*
+**/game/saves/*

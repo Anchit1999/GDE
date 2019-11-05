@@ -28,6 +28,8 @@ label start:
 
     e "Once you add a story, pictures, and music, you can release it to the world!"
 
+    call simon pass (complete=10, toadd=2)
+
     # This ends the game.
 
     return
