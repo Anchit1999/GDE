@@ -54,7 +54,7 @@ label simonend:
     jump simonturn
     
 screen simondisplay():
-    text "SIMON SAYS..." xalign 0.5 yalign 0.2
+    text "Let's see how good you are ..." xalign 0.5 yalign 0.2
     grid 2 2:
         xalign 0.5
         yalign 0.5
