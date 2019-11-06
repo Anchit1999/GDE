@@ -5,6 +5,10 @@
 
 define e = Character("Eileen")
 define p = Character("[name]")
+define h = Character("Hero")
+define i = Character("Hero1")
+
+
 # The game starts here.
 # p is player
 
@@ -22,20 +26,57 @@ label start:
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 
-    scene bg room
+    scene pub2
 
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    show eileen happy
+    show dark hair ang
+    with fade
 
+    h "I am angry"
+    hide dark hair ang
 
-    # These display lines of dialogue.
+    show dark hair ann01
+    with dissolve
+    h "I am annoyed01"
+    hide dark hair ang01
 
-    e "You've created a new Ren'Py game."
+    show dark hair ann02
+    with fade
+    h "I am annoyed02"
+    hide dark hair ang02
 
-    e "Once you add a story, pictures, and music, you can release it to the world!"
+    show dark hair neu01
+    with pixellate
+    h "I am Neutral01"
+    hide dark hair neu01
+
+    show dark hair neu02
+    with hpunch
+    h "I am Neutral02"
+    hide dark hair neu02
+
+    show dark hair sad01
+    with blinds
+    h "I am sad01"
+    hide dark hair sad01
+
+    show dark hair sad02
+    with squares
+    h "I am sad02"
+    hide dark hair sad02
+
+    show dark hair smi01
+    with zoomin
+    h "I am smi01"
+    hide dark hair smi01
+
+    show dark hair smi02
+    with vpunch
+    h "I am smi01"
+    hide dark hair smi02
 
     
     label selectgame:
