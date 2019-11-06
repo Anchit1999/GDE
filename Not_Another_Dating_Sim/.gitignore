@@ -1,3 +1,4 @@
-log.txt
+*.rpyc
+*.txt
 **/game/cache/
 **/game/saves/
