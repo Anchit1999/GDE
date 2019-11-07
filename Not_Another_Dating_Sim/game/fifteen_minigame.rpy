@@ -104,7 +104,7 @@ label fifteen_game:
 
     # Next 4 lines are used to set an image to solve (could be deleted for clasic fifteen game).
     # It is recommended that all images will be smaller than screen size.
-    $ chosen_img = renpy.random.choice ( ("abstract.png", "flower.png") )
+    $ chosen_img = renpy.random.choice ( ("images/fifteen_minigame/abstract.png", "images/fifteen_minigame/flower.png") )
     $ chosen_img_width, chosen_img_height = renpy.image_size(chosen_img)
     $ tile_width = chosen_img_width/grid_width
     $ tile_height = chosen_img_height/grid_height
@@ -146,7 +146,7 @@ label fifteen_game:
     # will let us control if the missed tile should be shown
     $ fifteen_is_solved = False
     # sets the timer to make game more difficult
-    $ fifteen_timer = 1000
+    $ fifteen_timer = 300
     # will let us control the timer
     $ timer_on = False
 
