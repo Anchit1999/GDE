@@ -149,7 +149,7 @@ init python:
             # Check for a winner.
             if self.bx < self.PADDLE_X-10:
                 print(self.bx)
-                self.winner = "eileen"
+                self.winner = "g1"
 
                 # Needed to ensure that event is called, noticing
                 # the winner.
@@ -220,7 +220,7 @@ screen pong():
 
 
 
-label demo_minigame:
+label pong_minigame:
 
     label play_pong:
 
@@ -232,19 +232,20 @@ label demo_minigame:
         $ quick_menu = True
         window show
 
-    show eileen vhappy
+    # show g1 vhappy
 
-    if _return == "eileen":
+    if _return == "g1":
 
-        g1 "I win!"
-
-    else:
-
-        g1 "You won! Congratulations."
+        g1 "It's ok. Better Luck next time"
+        $ confidence_meter += 5
+        
+    else:   
+        g1 "Wow you were better than I hoped. I'm impressed"
+        $ confidence_meter += 10
 
 label pong_done:
 
     # show girl
-    # show eileen happy
+    # show g1 happy
 
     return

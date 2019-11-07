@@ -139,7 +139,7 @@ label start:
 
     label g1_story:
 
-        $ played_music_minigame = False
+        $ played_pong_minigame = False
         # show g1 neutral
 
         n "g2 , g3 and Rohit leave for starters"
@@ -237,88 +237,165 @@ label start:
 
                 #> Dhwani all red. Confidence skyrockets. Can show bit of shivering
 
-        g1  "I love music , Come on let's go and do karoake"
+        g1  "Oh Wow , is that people playing air hockey, come on let's go and play too."
 
         ## Flash_Back
 
-        # Scene change - school event.
+        # Scene change - arcade game.
 
-        n  "You suddenly had a flashback to your 7th grade annual function event."
+        n  "Your thoughts turn back to 26.05.2008 the last truly happy day of your life. Your parents had taken you out to a gaming arcade for your 11th birthday "
 
-        n  "You remember how you finally had the guts to go on stage and sing your hearts out, you had practiced and learnt all the lyrics."
+        n  "Ah it was so much fun playing all the games with your mom dad and sister, such a happy family."
 
-        # Scene change - on stage public humiliation , people laughing two or three scenes.
+        # Scene change parents fighting
 
-        n  "But seeing the audience of over 500 , you forgot everything and ran away from the stage."
+        n  "However that night you couldn't sleep with all the excitement , and you heard raised voices from your parent's room"
 
-        n  "The jeering, taunts and bullying that you had to face the entire year. That was the year when you developed the stutter."
+        n  "You peeked and saw your dad throwing a vase at your mom ...... nothing was ever the same again."
         
         # Scene change - present
         
-        n "Do you still want to play the minigame."
+        n "Do you still want to play air hockey ?"
         
         menu:
             
             "Yes":
 
-                p "Let's do karoake"
+                p "Yeah come on let's play. (in a shaky voice)."
                 # scene - changes to karoake
-                g1 "Go on it's your turn"
-
-                call fifteen_game
                 
-                $ played_music_minigame = True
-
+                call pong_minigame
+                
+                $ played_pong_minigame = True
+                
             "No":
 
                 g1  "Come on don't be a spoilsport."
-                p   "No I don't want to do karoake. I don't like it at all."
+                p   "No I don't want to play. I don't like it at all."
 
                 $ confidence_meter -= 10
 
-        n "The End"
+        # n "The End"
 
-        # good_choice:
+        p  "Anyways what do you like to do on a lazy afternoon?  "
+        g1 "I like to drink coffee and read a book.  "
+
+
+        menu:
+
+            "Me too. I love to read as well.":
+                
+                g1  "Wow what do you read.    "
+                p  "Well I like to read biographies .My favourite was the one on Steve Jobs by Walter Issacson.  "
+                g1  "Oh i like to read on the Mughal Period.  "
+                p  "Guess we are alike on this one."
+
+                $ confidence_meter += 10
+                # > > Confidence boost. Show Dhwani blushing. 
+
+            "Hmm. Chetan Bhagat am I right ?":
+                    
+                g1  "Well I dont like his novels.  "
+                p   " Wow, you must be mad then  "
+                g1  "Oh really."
+                $ confidence_meter -= 10
+
+                # > Show Dhwani excited. Confidence becomes little better
+
+
+            "That's so borrriiinnnnggg.":
+
+                g1 "Ok then what do you like?  "
+                p  "Watching netflix  "
+                g1  "Well i find it boring.  "
+                p  "Guess we agree to disagree.  "
+
+            #Dhwani indifferent.Confidence level same.
+        if confidence_meter >= 35:
+            call win_ending pass(girl = g2)
+            jump the_end
+        else:
+            call loss_ending pass(girl = g1)
+            jump the_end
+
+
+    label g2_story:
+        pass
+
+    label g3_story:
+        pass
+
+    label win_ending(girl):
+
+        if girl == g2:
+            n "first girl"
 
 
 
-        # bad_choice:
+        girl "Anyways, I had a wonderful time."
+        p "Sure,me too. Hey are you free for lunch tomorrow"
+        girl  "mmmmm"
+        girl  "(softly) yeah"
+        p  "well, lets have a good old gujrati thali then."
+        return
 
-        # worst_choice
+    label loss_ending(girl):
+        pass
 
+    
+
+
+
+   
+
+
+
+
+
+
+
+    # # KAROAKE
+    #     g3  "I love music , Come on let's go and do karoake"
+
+    #     ## Flash_Back
+
+    #     # Scene change - school event.
+
+    #     n  "You suddenly had a flashback to your 7th grade annual function event."
+
+    #     n  "You remember how you finally had the guts to go on stage and sing your hearts out, you had practiced and learnt all the lyrics."
+
+    #     # Scene change - on stage public humiliation , people laughing two or three scenes.
+
+    #     n  "But seeing the audience of over 500 , you forgot everything and ran away from the stage."
+
+    #     n  "The jeering, taunts and bullying that you had to face the entire year. That was the year when you developed the stutter."
         
-
-
-    # with hpunch
-    # with blinds
-    # with squares
-    # with zoomin
-    # with vpunch
-  
-    # label music_minigame:
-    #     p "Let's do karoake"
-    #     call simon pass (complete=8, toadd=2)
-
+    #     # Scene change - present
         
-    # label pong_minigame:
-
-    #     p "Let's play pong"
-    #     jump play_game2
-
-    # label play_game1:
-
+    #     n "Do you still want to play the minigame."
         
-    #     jump continue_game
+    #     menu:
+            
+    #         "Yes":
 
-    # label play_game2:
+    #             p "Let's do karoake"
+    #             # scene - changes to karoake
+    #             g3 "Go on it's your turn"
 
-    #     call demo_minigame
+    #             call fifteen_game
+                
+    #             $ played_pong_minigame = True
 
-    #     jump continue_game
-        
-    # label continue_game:
+    #         "No":
 
+    #             g3  "Come on don't be a spoilsport."
+    #             p   "No I don't want to do karoake. I don't like it at all."
 
-    # n "Your Score increased by 10"
+    #             $ confidence_meter -= 10
+
+    label the_end:
+    n "The End"
+
 
     return
