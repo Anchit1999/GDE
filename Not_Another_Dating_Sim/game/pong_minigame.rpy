@@ -206,7 +206,7 @@ screen pong():
         ypos 25
         size 40
 
-    text _("Eileen"):
+    text _("g1"):
         xpos (1280 - 240)
         xanchor 0.5
         ypos 25
@@ -222,20 +222,9 @@ screen pong():
 
 label demo_minigame:
 
-    e "You may want to mix Ren'Py with other forms of gameplay. There are a couple of ways to do this."
-
-    e "The first is with the screen system, which can be used to display data and create button and menu based interfaces."
-
-    e "Screens will work for many simulation-style games and RPGs."
-
-    e "When screens are not enough you can write a creator-defined displayable to extend Ren'Py itself. A Creator-defined displayables can process raw events and draw to the screen."
-
-    e "That makes it possible to create all kinds of minigames. Would you like to play some pong?"
-
-
     label play_pong:
 
-        window hide  # Hide the window and  quick menu while in pong
+        window hide  # Hide the window and quick menu while in pong
         $ quick_menu = False
 
         call screen pong
@@ -247,45 +236,15 @@ label demo_minigame:
 
     if _return == "eileen":
 
-        e "I win!"
+        g1 "I win!"
 
     else:
 
-        e "You won! Congratulations."
+        g1 "You won! Congratulations."
 
 label pong_done:
 
-    show eileen happy
-
-    menu:
-        e "Would you like to play again?"
-
-        "Sure.":
-
-            jump play_pong
-
-        "No thanks.":
-
-            pass
-
-    # show example minigame large
-
-    # e "Here's the source code for the minigame. It's very complex, and assumes you understand Python well."
-
-    # e "I won't go over it in detail here. You can read more about it in the {a=https://www.renpy.org/doc/html/udd.html}Creator-Defined Displayable documentation{/a}."
-
-    # hide example
-
-    # e "Minigames can spice up your visual novel, but be careful – not every visual novel player wants to be good at arcade games."
-
-    # e "Part of the reason Ren'Py works well is that it's meant for certain types of games, like visual novels and life simulations."
-
-    # e "The further afield you get from those games, the more you'll find yourself fighting Ren'Py. At some point, it makes sense to consider other engines."
-
-    # show eileen vhappy
-
-    # e "And that's fine with us. We'll always be here for you when you're making visual novels."
-
-    show eileen happy
+    # show girl
+    # show eileen happy
 
     return
