@@ -17,6 +17,7 @@ define g3 = Character("g3")
 # p is the player
 
 label start:
+
     $ confidence_meter = 25
 
     n "Hi, welcome to our humble game. Before you begin please tell us your name."
@@ -138,6 +139,7 @@ label start:
 
     label g1_story:
 
+        $ played_music_minigame = False
         # show g1 neutral
 
         n "g2 , g3 and Rohit leave for starters"
@@ -194,6 +196,87 @@ label start:
 
                 
                 $ confidence_meter -= 10
+        
+        p  "Anyways you got any hobbies ? "
+        g1  "Yeah I like cooking. I also like to watch bollywood movies."
+        p  "Oh what is your favourite dish to cook ?  "
+        g1  "I like to cook Gujrati food."
+        
+        menu:
+
+            "Oh thats pretty lame. You should try more awesome things like pasta and burger.  ":
+                
+                g1  "Well to each their own. "
+                p  "Anything not pasta is so stupid. Go for pasta only. "    
+                g1  "(visibly annoyed).Hmm sure "
+
+                $ confidence_meter -= 10
+                # > Confidence hit. Show g1 angryp             
+                
+            "Wow thats actually interesting. I would love to know more.":
+                
+                g1  "Oh sure (visibly excited). Its very different to what you would find elsewhere.  "
+                p  "Really how ?  "
+                g1  "Well we like everything sweet. So you find a bit of sweetness in everything we eat.  "
+                p  "Wow, that is different. The only sweet ive ever had is in form of ice cream. Would love to try sometime.  "
+                g1  "Sure. Next time we meet,ill try to get something for you."
+
+                $ confidence_meter += 5
+
+                # > Show Dhwani excited. Confidence becomes little better
+
+
+            "You mean dhokla and thepla. Yeah sweet just like you  ":
+
+                g1  "(gets horny) Well you are not wrong about the food.   "
+                p  "I actually like Gujrati food. I had some Gujarati friends in college.    "
+                g1  "Wow can you speak gujrati then?.  "
+                p  "Tārā māṭē kaṁīpaṇa.(Anything for you) "
+
+                $ confidence_meter += 10
+
+                #> Dhwani all red. Confidence skyrockets. Can show bit of shivering
+
+        g1  "I love music , Come on let's go and do karoake"
+
+        ## Flash_Back
+
+        # Scene change - school event.
+
+        n  "You suddenly had a flashback to your 7th grade annual function event."
+
+        n  "You remember how you finally had the guts to go on stage and sing your hearts out, you had practiced and learnt all the lyrics."
+
+        # Scene change - on stage public humiliation , people laughing two or three scenes.
+
+        n  "But seeing the audience of over 500 , you forgot everything and ran away from the stage."
+
+        n  "The jeering, taunts and bullying that you had to face the entire year. That was the year when you developed the stutter."
+        
+        # Scene change - present
+        
+        n "Do you still want to play the minigame."
+        
+        menu:
+            
+            "Yes":
+
+                p "Let's do karoake"
+                # scene - changes to karoake
+                g1 "Go on it's your turn"
+
+                call fifteen_game
+                
+                $ played_music_minigame = True
+
+            "No":
+
+                g1  "Come on don't be a spoilsport."
+                p   "No I don't want to do karoake. I don't like it at all."
+
+                $ confidence_meter -= 10
+
+        n "The End"
 
         # good_choice:
 
@@ -212,48 +295,30 @@ label start:
     # with zoomin
     # with vpunch
   
-    
-    label selectgame:
+    # label music_minigame:
+    #     p "Let's do karoake"
+    #     call simon pass (complete=8, toadd=2)
 
-    n "Select the minigame you wish to play"
-
-
-    menu:
-
-        "music minigame":
-            jump music_minigame
-
-        "pong minigame":
-            jump pong_minigame
-
-    label music_minigame:
-
-        p "Let's do karoake"
-
-        jump play_game1
-
-    label pong_minigame:
-
-        p "Let's play pong"
-
-        jump play_game2
-
-    label play_game1:
-
-        call simon pass (complete=8, toadd=2)
         
-        jump continue_game
+    # label pong_minigame:
 
-    label play_game2:
+    #     p "Let's play pong"
+    #     jump play_game2
 
-        call demo_minigame
+    # label play_game1:
 
-        jump continue_game
         
-    label continue_game:
-            # ... the game continues here.
-    # This ends the game.
+    #     jump continue_game
 
-    n "Your Score increased by 10"
+    # label play_game2:
+
+    #     call demo_minigame
+
+    #     jump continue_game
+        
+    # label continue_game:
+
+
+    # n "Your Score increased by 10"
 
     return
