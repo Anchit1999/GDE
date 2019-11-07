@@ -1,0 +1,2 @@
+crop 900 1200
+resize 90% 5 times till 531 x 708
