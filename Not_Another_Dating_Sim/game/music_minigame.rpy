@@ -1,9 +1,4 @@
-### SIMON MINIGAME II 0.1.1
-# Made by: GAS
-# Found on LemmaSoft Forum
-# Free to use at will
-    
-label simon(complete=10, toadd=2):
+label simon(complete=8, toadd=2):
     $ sequence=[]
     $ yourguess=0
 label simonturn:
@@ -59,7 +54,7 @@ label simonend:
     jump simonturn
     
 screen simondisplay():
-    text "SIMON SAYS..." xalign 0.5 yalign 0.2
+    text "Let's see how good you are ..." xalign 0.5 yalign 0.2
     grid 2 2:
         xalign 0.5
         yalign 0.5
@@ -84,7 +79,7 @@ screen simondisplay():
         else:
             add "images/music_minigame/e.png"
 screen simonvoid():
-    text "SIMON SAYS..." xalign 0.5 yalign 0.2
+    text "Let's see how good you are ..." xalign 0.5 yalign 0.2
     grid 2 2:
         xalign 0.5
         yalign 0.5
