@@ -96,7 +96,7 @@ label start:
     r  "Oh not too bad. Is this some coincidence or were you guys always planning to catch me like this?? "
 
     show ros_akuwaraia1 at right
-    show dark hair smi01
+    show dark hair smi01 with dissolve
     g3 "Dont flatter yourself. Well we ran into each other the other day and decided to catch up properly. After all the stress is so high, our social lives have taken a collective dump."
     g1 "Hey is he okay ?"
 
