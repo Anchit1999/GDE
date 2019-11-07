@@ -24,6 +24,8 @@ G1 : Hey Hey Hey!!!! Look who showed up
 G2 :  OMG!!! Its been so long. How are you???
 Rohit :  Oh not too bad. Is this some coincidence or were you guys always planning to catch me like this??  
 G3 : Dont flatter yourself. Well we ran into each other the other day and decided to catch up properly. After all the stress is so high, our social lives have taken a collective dump.
+
+
 G1 : Hey is he okay?
 > Panting. Can be depicted by some random transition of scenes, moving the characters
 
@@ -37,7 +39,10 @@ Labdhi : I mean Im a corporate lawyer. He He
 Narrator : That was a really poor joke
 G2 : Well im Dhwani. I am a school teacher.  
 G3 : And you must already know me. I am the famous actress .... -  
-Hero : Sorry I dont know you. But I feel ive seen you somewhere. G3 : (tad angry) Khushi. Im in the UNESCO ad that everyone has been talking about. Gosh have you not followed my Instagram page alreadyyyyy.  
+Hero : Sorry I dont know you. But I feel ive seen you somewhere. 
+
+G3 : (tad angry) Khushi. Im in the UNESCO ad that everyone has been talking about. Gosh have you not followed my Instagram page alreadyyyyy.  
+
 Rohit : And thats dinner. I am really hungry. Anyone up for some chicken wings.
 Rohit : (pulling Hero closer), this is your chance.   
 Hero : Seriously man, im sweating buckets here  
@@ -55,6 +60,7 @@ Hero : No no not at all. Im just not used to this.
 Dhwani : Well to be honest me too. He he  
 Hero : So what do you teach?? Arts?  
 Dhwani : No I teach history to senior students  
+
 `Key comment`  
 C1 : Wow. Must be a real headache keeping those teen egos into check.  
 C2 : Yeah you look the part. A typical History teacher. Not too smart. Ha Ha  
@@ -64,8 +70,8 @@ If C1:
     Dhwani : Yeah not many people realize how hard it is.  
     Hero : But I am sure its rewarding.   
     Dhwani : Yeah sure is. Always feel happy to see a succesfull student.  
-    Hero : Yeah most important job in the world.  
-> Confidence boost. Show Dhwani smiling. 
+ > Confidence boost. Show Dhwani smiling. 
+   Hero : Yeah most important job in the world.  
   
 If C2:  
     Dhwani : Well those who forget history are doomed to repeat it.  
@@ -105,7 +111,7 @@ If C2:
 > Show Dhwani excited. Confidence becomes little better
 
 If C3:  
-    Dhwani: (gets horny)Well you are not wrong about the food.   
+    Dhwani: (gets horny) Well you are not wrong about the food.   
     Hero : I actually like Gujrati food. I had some Gujarati friends in college.    
     Dhwani : Wow can you speak gujrati then?.  
     Hero : Tārā māṭē kaṁīpaṇa.(Anything for you)  
