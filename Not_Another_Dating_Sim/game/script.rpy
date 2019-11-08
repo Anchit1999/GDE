@@ -42,10 +42,10 @@ label start:
 
     show male smi01 with dissolve
     # $ style.say_dialogue = style.edited
-    # $ gtext = shuffletext("fucking hell bitch quitty")
+    # $ gtext = randomshuffle("And here we are celebrating my friend Rohit's work anniversary")
     
     p "And here we are celebrating my friend Rohit's work anniversary"    
-    # p "Hello world[gtext]"
+    # p "[gtext]"
     # $ style.say_dialogue = style.normal
     r "Hey man why so serious? Its been such a hectic couple of months and I just want to relax today."
 
@@ -290,7 +290,11 @@ label start:
 
                 #> Dhwani all red. Confidence skyrockets. Can show bit of shivering
 
+        $ encrpytd = False
+        if encrpytd <= 35:
+            $ encrpytd = True
         show pink hair smile01 with dissolve
+        
         g1  "Oh Wow , is that people playing air hockey, come on let's go and play too."
 
         ## Flash_Back
@@ -331,24 +335,35 @@ label start:
         # n "The End"
         scene pub2 with fade
         show pink hair neutral01 with dissolve
-        p  "Anyways what do you like to do on a lazy afternoon?  "
-        g1 "I like to drink coffee and read a book.  "
+        
+        $ diag = randomshuffle("Anyways what do you like to do on a lazy afternoon?")
+        p  "[diag]"
+        $ diag = randomshuffle("I like to drink coffee and read a book.  ")
+        g1 "[diag]"
 
+        $ opt1 = randomshuffle("Me too. I love to read as well.",0.75)
+        $ opt2 = randomshuffle("Hmm. Chetan Bhagat am I right ?",0.85)
+        $ opt3 = randomshuffle("That's so borrriiinnnnggg.")
         menu:
-
-            "Me too. I love to read as well.":
+            "[opt1]":
+                $ style.say_dialogue = style.edited
                 show pink hair smile01 with dissolve
-                g1  "Wow what do you read.    "
-                p  "Well I like to read biographies. My favourite was the one on Steve Jobs by Walter Issacson.  "
-                g1  "Oh i like to read on the Mughal Period.  "
-                p  "Guess we are alike on this one."
+                $ diag = randomshuffle("Wow what do you read.    ",0.8)
+                g1 "[diag]"
+                $ diag = randomshuffle("Well I like to read biographies. My favourite was the one on Steve Jobs by Walter Issacson.  ",0.8)
+                p  "[diag]"
+                $ diag = randomshuffle("Oh i like to read on the Mughal Period.  ",0.8)
+                g1  "[diag]"
+                $ diag = randomshuffle("Guess we are alike on this one.",0.8)
+                p  "[diag]"
                 show pink hair smile03 with dissolve
                 $ confidence_meter += 10
                 # > > Confidence boost. Show Dhwani blushing. 
 
-            "Hmm. Chetan Bhagat am I right ?":
+            "[opt2]":
                 
                 show pink hair annoyed01 with dissolve
+                $ diag = randomshuffle("Well I dont like his novels.  ",0.8)
                 g1  "Well I dont like his novels.  "
                 p   " Wow, you must be mad then  "
                 show pink hair ang01 with dissolve
@@ -358,12 +373,13 @@ label start:
                 # > Show Dhwani angry.
 
 
-            "That's so borrriiinnnnggg.":
+            "[opt3]":
 
                 g1 "Ok then what do you like?  "
                 p  "Watching netflix  "
                 g1  "Well i find it boring.  "
                 p  "Guess we agree to disagree.  "
+                $ style.say_dialogue = style.normal
 
             #Dhwani indifferent.Confidence level same.
         
