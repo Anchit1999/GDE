@@ -280,13 +280,13 @@ label start:
         ## Flash_Back
         scene pub2 with fade
         # Scene change - arcade game.
-
+        scene arcade1 with fade
         n  "Your thoughts turn back to 26.05.2008 the last truly happy day of your life. Your parents had taken you out to a gaming arcade for your 11th birthday "
 
         n  "Ah it was so much fun playing all the games with your mom dad and sister, such a happy family."
 
         # Scene change parents fighting
-
+        scene sady with fade        
         n  "However that night you couldn't sleep with all the excitement , and you heard raised voices from your parent's room"
 
         n  "You peeked and saw your dad throwing a vase at your mom ...... nothing was ever the same again."
@@ -300,8 +300,8 @@ label start:
             "Yes":
                 show pink hair smile01
                 p "Yeah come on let's play. (in a shaky voice)."
-                # scene - changes to karoake
-                
+                # scene - changes to 
+                scene bary with fade
                 call pong_minigame
                 
                 $ played_pong_minigame = True
@@ -314,6 +314,7 @@ label start:
                 $ confidence_meter -= 10
 
         # n "The End"
+        scene pub2 with fade
         show pink hair neutral01
         p  "Anyways what do you like to do on a lazy afternoon?  "
         g1 "I like to drink coffee and read a book.  "
@@ -464,9 +465,11 @@ label start:
         # Relevant cutscene backstory
 
         n  "Stress buster huh , well I wish I had something of this sorts when I was younger "
-
-        n  "Anything to distract me from the rants of my drunk,senseless father. And forget the string of affairs my mom had. All this happening the year of my board exams."
-
+        scene drunky with fade
+        n  "Anything to distract me from the rants of my drunk,senseless father."
+        scene gandi-mom with fade
+        n "And forget the string of affairs my mom had. All this happening the year of my board exams."
+        scene sundary with fade        
         n  "Hmm , no p you are stronger than this , don't live in the past , don't it will only bring you pain. Think of positive things. "
 
         g2 "Hello !! , Earth to p , Earth to p. Do you wanna try it."
@@ -477,7 +480,7 @@ label start:
 
                 p "Yeah sure I will give it a try. (in a shaky voice)."
                 # scene - changes to karoake
-                
+                scene indoor with fade
                 call fifteen_game
                 
                 $ played_puzzle_minigame = True
@@ -488,7 +491,7 @@ label start:
                 p   "No I don't want to do it. I don't like it at all."
 
                 $ confidence_meter -= 10
-
+        scene pub2 with fade
         p  "So whats your favorite movie?"
         g2  "Oh I love rom coms and sci-fi. So my favurite movies are Princess Diaries and Interstellar.  "
         p  "Nice. Yeah even like I to watch movies.  "
@@ -654,27 +657,28 @@ label start:
         ## Flash_Back
 
         # Scene change - school event.
-
+        show stage1 with fade
         n  "You suddenly had a flashback to your 7th grade annual function event."
 
         n  "You remember how you finally had the guts to go on stage and sing your hearts out, you had practiced and learnt all the lyrics."
 
         # Scene change - on stage public humiliation , people laughing two or three scenes.
-
+        show sadkiddo with fade
         n  "But seeing the audience of over 500 , you forgot everything and ran away from the stage."
-
+        show bully with fade
         n  "The jeering, taunts and bullying that you had to face the entire year. That was the year when you developed the stutter."
         
         # Scene change - present
-        
+
         g3 "Come on let's go for karoake ?"
         
         menu:
             
             "Yes":
-
+                
                 p "Okay sure let's go."
                 # scene - changes to karoake
+                scene karaoke with fade
                 g3 "Go on it's your turn"
 
                 call simon(complete=8, toadd=2)
@@ -688,7 +692,7 @@ label start:
 
                 $ confidence_meter -= 10
 
-    
+        scene pub2 with fade
         p  "Anyways, umm   "
         g3  "What? You take hell lot of time to say things.    "
         p  "So whats your cheat day meal like?   "
