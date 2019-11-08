@@ -212,7 +212,8 @@ label fifteen_win:
 
     # This will show the missed tile in its place.
     $ fifteen_is_solved = True
-
+    # hide ros_waraia1
+    show ros_waraia1
     g2 "Wow you were better than I hoped. Im impressed"
     $ confidence_meter += 10
 
@@ -223,7 +224,8 @@ label fifteen_lose:
     $ timer_on = False
     $ renpy.pause(0.1, hard = True)
     $ renpy.pause(0.1, hard = True)
-    
+    # hide ros_waraia1
+    show ros_defa1
     g2 "It's ok. Better Luck next time"
     $ confidence_meter += 5
     
@@ -234,6 +236,8 @@ label fifteen_lose:
 label quit_fifteen_game:
     hide screen fifteen_scr
     
+    # hide ros_waraia1
+    show ros_defa1
     g2 "It's ok. Better Luck next time"
     $ confidence_meter += 5
     
