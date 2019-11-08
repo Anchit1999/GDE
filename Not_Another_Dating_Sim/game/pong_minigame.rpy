@@ -148,8 +148,7 @@ init python:
 
             # Check for a winner.
             if self.bx < self.PADDLE_X-10:
-                print(self.bx)
-                self.winner = "g1"
+                self.winner = "Ananya"
 
                 # Needed to ensure that event is called, noticing
                 # the winner.
@@ -200,13 +199,13 @@ screen pong():
 
     add pong
 
-    text _("Player"):
+    text _("[name]"):
         xpos 240
         xanchor 0.5
         ypos 25
         size 40
 
-    text _("g1"):
+    text _("Ananya"):
         xpos (1280 - 240)
         xanchor 0.5
         ypos 25
@@ -234,7 +233,7 @@ label pong_minigame:
 
     # show g1 vhappy
 
-    if _return == "g1":
+    if _return == "Ananya":
         show pink hair smile01
         g1 "It's ok. Better Luck next time"
         $ confidence_meter += 5

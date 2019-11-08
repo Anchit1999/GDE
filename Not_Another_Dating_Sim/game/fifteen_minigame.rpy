@@ -214,7 +214,7 @@ label fifteen_win:
     $ fifteen_is_solved = True
     # hide ros_waraia1
     show ros_waraia1
-    g2 "Wow you were better than I hoped. Im impressed"
+    g2 "Wow you were better than I hoped. I'm impressed"
     $ confidence_meter += 10
 
     hide screen fifteen_scr
