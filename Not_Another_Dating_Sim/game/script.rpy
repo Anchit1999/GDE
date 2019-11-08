@@ -40,8 +40,7 @@ label start:
     # directory.
 
 
-    show male smi01
-    with dissolve
+    show male smi01 with dissolve
 
     p "And here we are celebrating my friend Rohit's work anniversary"    
 
@@ -51,9 +50,8 @@ label start:
     
     r "Come on, Loosen up. What the ..."
     
-    hide male smi01
-    show male smi02
-    with dissolve
+    # hide male smi01
+    show male smi02 with dissolve
 
     p "What happened ?"
     
@@ -88,50 +86,73 @@ label start:
     # show dark hair smi01 at right
     
     show pink hair smile01
-    g1 "Hey Hey Hey!!!! Look who showed up"  
+    g1 "Hey Hey Hey!!!! Look who showed up"
+    show pink hair smile01 at ph1
 
-    show pink hair smile01 at left
     show ros_akuwaraia1 with dissolve
     g2 "OMG!!! Its been so long. How are you ???"
+    show ros_akuwaraia1 at ros1
 
+    show male smi02 with dissolve
     r  "Oh not too bad. Is this some coincidence or were you guys always planning to catch me like this?? "
 
-    show ros_akuwaraia1 at right
-    show dark hair smi01 with dissolve
+    show male smi02 at m1
+ 
+    show dark hair smi01 at dh1 with dissolve
     g3 "Dont flatter yourself. Well we ran into each other the other day and decided to catch up properly. After all the stress is so high, our social lives have taken a collective dump."
+
+    show pink hair smile01 at phz1
     g1 "Hey is he okay ?"
+    show pink hair smile01 at phz2
 
     #  Panting. Can be depicted by some random transition of scenes, moving the characters
 
     n  "Suddenly, Rohit hits me"
     p  "Owww !"
-    r  "Welcome back. Guys this is my friend p. We have been together since childhood. He is an engineer at XYZ company."    
+
+    show male smi02 at mz1
+    r  "Welcome back. Guys this is my friend Hero. We have been together since childhood. He is an engineer at XYZ company."    
+    show male smi02 at mz2
     p  "(meekly) Hi !!"
 
+    show pink hair smile01 at phz1
     g2 "Oh my God, Relax man. We arent going to eat you. By the way I'm g2. I'm working to protect people like you.  "
-    
+    show pink hair smile01 at phz2
+
+    show male smi02 at mz1
     r  "(confused) Sorry ?"
-    
+    show male smi02 at mz2
+
+    show pink hair smile01 at phz1
     g2 "I mean I'm a corporate lawyer. Hehe "
+    show pink hair smile01 at phz2
 
     n  "That was a really poor joke."
 
+    show ros_akuwaraia1 at rosz1
     g1 "Well I'm g1. I am a school teacher"
+    show ros_akuwaraia1 at rosz2
 
+    show dark hair smi01 at dhz1
     g3 "And you must already know me. I am the famous actress ...."
+    show dark hair smi01 at dhz2
 
     p "Sorry I dont know you. But I feel I have seen you somewhere. "
 
+    show dark hair ang at dhz1
     g3 "(tad angry) g3. Im in the UNESCO ad that everyone has been talking about. Gosh have you not followed my Instagram page alreadyyyyy."
+    show dark hair ang at dhz2
 
+    show male smi02 at mz1
     r "And that's dinner. I am really hungry. Anyone up for some starters."
     
     r "(pulling p closer), this is your chance."
     
+    show male smi02 at mz2
     p "Seriously man, i'm sweating buckets here"
-
+    show male smi02 at mz1
     r "Live a little buddy."
-
+    show male smi02 at mz2
     label selectgirl:
 
         n " Which girl do you wanna talk to more ?"
@@ -589,12 +610,48 @@ image blackflash:
 
     Solid("#000")
     alpha 0.0
-    linear 0.25 alpha 0.8
-    linear 0.75 alpha 0.2
-    linear 1.0 alpha 0.8
-    
     linear 0.25 alpha 0.2
-    linear 0.50 alpha 0.4
     linear 0.75 alpha 0.6
     linear 1.0 alpha 0.8
     linear 0.25 alpha 0.0
+
+transform place(x=None,y=None,z=1.0):
+    xalign x
+    yalign y
+    linear .25 zoom z
+
+transform ph1:
+    place(x=-0.1)
+
+transform phz1:
+    place(x=-0.1,z=1.05)
+
+transform phz2:
+    place(x=-0.1,z=1.0)
+
+transform dh1:
+    place(x=0.25,y=1.0)
+
+transform dhz1:
+    place(x=0.25,y=1.0,z=1.05)
+
+transform dhz2:
+    place(x=0.25,y=1.0,z=1.0)
+
+transform ros1:
+    place(x=1.3)
+
+transform rosz1:
+    place(x=1.3,z=1.05)
+
+transform rosz2:
+    place(x=1.3,z=1.0)
+
+transform m1:
+    place(x=0.65)
+
+transform mz1:
+    place(x=0.65,z=1.05)
+
+transform mz2:
+    place(x=0.65,z=1.0)
