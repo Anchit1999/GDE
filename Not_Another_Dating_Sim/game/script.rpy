@@ -40,8 +40,8 @@ label start:
     # directory.
 
 
-    # show m1 image neutral
-    with fade
+    show male smi01
+    with dissolve
 
     p "And here we are celebrating my friend Rohit's work anniversary"    
 
@@ -51,15 +51,15 @@ label start:
     
     r "Come on, Loosen up. What the ..."
     
-    # show m1 image blush
-
-    with fade
+    hide male smi01
+    show male smi02
+    with dissolve
 
     p "What happened ?"
     
     r "OMG!!! I dont believe it ?"
-    
-    p "(shaking) What???  "
+        
+    p "(shaking) What???  " with hpunch
     
     r "G1,G2 and G3 all together. Wow they must be having some sort of reunion together."
     
@@ -74,19 +74,30 @@ label start:
     r " Arre why are you so concerned?" 
   
     p " (stuttering) I have avoided all humanity uptill now and you want me to talk to 3 beautifull girls."
-    
-    # > Hero shaking. Depict by bluring the screen or something  
+    # with Fade(5.0) zorder 10
+    show blackflash zorder 50
+    # > Hero shaking. Depict by bluring the screen or something
 
     n "So Rohit pulled me and I was totally uncomfortable"
-
+    hide male smi02
     # show g1 neutral
+    # show pink hair smile01 at left
     # show g2 neutral
+    # show ros_akuwaraia1
     # show g3 neutral
+    # show dark hair smi01 at right
     
+    show pink hair smile01
     g1 "Hey Hey Hey!!!! Look who showed up"  
+
+    show pink hair smile01 at left
+    show ros_akuwaraia1 with dissolve
     g2 "OMG!!! Its been so long. How are you ???"
 
     r  "Oh not too bad. Is this some coincidence or were you guys always planning to catch me like this?? "
+
+    show ros_akuwaraia1 at right
+    show dark hair smi01 with dissolve
     g3 "Dont flatter yourself. Well we ran into each other the other day and decided to catch up properly. After all the stress is so high, our social lives have taken a collective dump."
     g1 "Hey is he okay ?"
 
@@ -399,3 +410,16 @@ label start:
 
 
     return
+
+image blackflash:
+    Solid("#000")
+    alpha 0.0
+    linear 0.25 alpha 0.8
+    linear 0.75 alpha 0.2
+    linear 1.0 alpha 0.8
+    
+    linear 0.25 alpha 0.2
+    linear 0.50 alpha 0.4
+    linear 0.75 alpha 0.6
+    linear 1.0 alpha 0.8
+    linear 0.25 alpha 0.0
