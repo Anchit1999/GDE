@@ -1516,3 +1516,21 @@ style slider_pref_vbox:
 style slider_pref_slider:
     variant "small"
     xsize 600
+
+init -1 python:
+    def RigMouse():
+        currentpos = renpy.get_mouse_pos()
+        targetpos = [640, 200]
+        if currentpos[1] < targetpos[1]:
+            renpy.display.draw.set_mouse_pos((currentpos[0] * 9 + targetpos[0]) / 10.0, (currentpos[1] * 9 + targetpos[1]) / 10.0)
+        if currentpos[1] > targetpos[1]:
+            renpy.display.draw.set_mouse_pos((currentpos[0] * 9 + targetpos[0]) / 10.0, (currentpos[1] * 0.95))
+
+init -501 screen rigged_choice(items):
+    style_prefix "choice"
+
+    vbox:
+        for i in items:
+            textbutton i.caption action i.action
+
+    timer 1.0/30.0 repeat True action Function(RigMouse)

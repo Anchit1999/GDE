@@ -236,7 +236,12 @@ label start:
         p  "Oh what is your favourite dish to cook ?  "
         g1  "I like to cook Gujrati food."
         
-        menu:
+        $ rigged = ""
+        if confidence_meter < 20:
+            $ rigged = "rigged_choice"
+        else:
+            $ rigged = "choice"
+        menu(screen=rigged):
 
             "Oh thats pretty lame. You should try more awesome things like pasta and burger.  ":
                 
