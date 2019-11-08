@@ -20,7 +20,7 @@ label start:
 
     $ confidence_meter = 25
 
-    n "Hi, welcome to our humble game. Before you begin please tell us your name."
+    n "Hi, welcome to our humble game. Before you begin please tell us your [[name]]."
 
     python:
         name = renpy.input(_("What's your name?"))
@@ -113,9 +113,9 @@ label start:
     g2 "Oh my God, Relax man. We arent going to eat you. By the way I'm g2. I'm working to protect people like you.  "
     show ros_akuwaraia1 at rosz2
 
-    show male smi02 at mz1
-    r  "(confused) Sorry ?"
-    show male smi02 at mz2
+    # show male smi02 at mz1
+    p  "(confused) Sorry ?"
+    # show male smi02 at mz2
 
     show ros_akuwaraia1 at rosz1
     g2 "I mean I'm a corporate lawyer. Hehe "
@@ -265,7 +265,7 @@ label start:
             "You mean dhokla and thepla. Yeah sweet just like you  ":
 
                 show pink hair smile03
-                g1  "(gets horny) Well you are not wrong about the food.   "
+                g1  "Well you are not wrong about the food.   "
                 p  "I actually like Gujrati food. I had some Gujarati friends in college.    "
                 g1  "Wow can you speak gujrati then?.  "
                 p  "Tārā māṭē kaṁīpaṇa.(Anything for you) "
@@ -561,17 +561,23 @@ label start:
         
         $ played_karoake_minigame = False
 
+        scene pub2 with dissolve
+        show dark hair neu01
+
         p  "Ummm  "
         g3  "Sooooo  "
         p  "(nervous laughter) Uhh. sooo.... uhh  "
         g3  "Well are you gonna talk or stay like that ?    "
         p  "Uh Uh umm"
+        show dark hair ann01
         g3  "Gosh are you gonna stay dumb like that?    "
         p  "Oh sorry. ummm"
+        
         g3  "OMG, this so weird. Anyways are you on instagram?    "
         p  " umm. Yeah yeah but I dont use it too often.  "
         g3  "Oh well then follow me. Or you can even not, I mean I have 30k followers.   "
         p  "But everyone counts right?    "
+        show dark hair neu03
         g3  "(embarrased) Oh yeah totally. Please follow me.   "
         p  "So how much time on average do you spend there?  "
         g3  "Well, mostly my manager manages my account. But i like to read comments and give fans what they want."
@@ -582,13 +588,16 @@ label start:
                 
                 g3  "If the fans turn on you, then its really hard to gain back their trust.    "
                 p  "True that. I guess all celebrities must feel that way.   "
-                g3  "Thats right. So why dont you do me a favor and follow me on Tiktok. My handle is cutiepie420.   "
+                g3  "Thats right. So why dont you do me a favor and follow me on Tiktok. My handle is cutiepie.   "
                 p  "umm uhh.    "
+                show dark hair ann01
                 g3  "Gosh you arent on TikTok are you?  "
                 p  " sorry im not. umm uhh, I could follow you on Linkedin.  "
                 g3  "You are such a nerd.              "
 
                 $ confidence_meter -= 5
+                
+                
                 # > > Confidence goes down. g3 unimpressed 
 
 
@@ -596,8 +605,11 @@ label start:
                 
                 g3  "I think I know whats important.    "
                 p  "Sorry. I just meant since you are an actress, that should be your strength,right?    "
+                show dark hair ang
                 g3  "(angry)Listen, just because you are an engineer and you think you are SO SMART, you dont get to tell me what I should do or what I shouldnt.   "
                 p  "umm uhh.Sorry you are right I shouldnt.    "
+                
+                show dark hair sad01
                 g3  "(apologetic)I am sorry, I shouldnt have shouted. "
                 g3 "Its just theres so much pressure on me at the moment.   "
                 p  " I understand. Its okay. Life is pretty hard on us sometimes isnt it?  "
@@ -606,22 +618,29 @@ label start:
                 
                 $ confidence_meter += 10
 
+                show dark hair smi01
                 # > (Labdhi indifferent) Confidence a bit high
 
 
             "Well, that comes at cost of self respect doesnt it. He he":
 
+                show dark hair ang
                 g3 "What do you know about self respect huh?  "
                 p  "Oh i didnt mean to say..  "
                 g3  "Do you even know what do I have to go through every single day? "
                 p  "Sorry. I didnt mean it that way. I didnt mean to hurt you.    "
+                
+                show dark hair sad02
                 g3  "(upset) what i have to listen every single day  "
                 p  "Hey, listen i didnt mean to say like that. umm Im quite an idiot. Im really sorry"
                 
                 $ confidence_meter -= 10
                 # > Labdhi indifferent.Confidence level lowers.
-        
+                
         p  "Anyways you got any hobbies? "
+
+        show dark hair neu01
+
         g3  "I love dancing and singing.Ever since I was a kid, I used to find every opportunity I could, to dance.  "
         p  "ohh nice.  "
         g3  "What about you ?    "
@@ -635,6 +654,9 @@ label start:
                 
                 g3  "Whats your favorite show there?     "
                 p  "Stranger Things. Its just ...  "
+                
+                show dark hair smi01
+                
                 g3  "(impressed). so cuuuuttttteeeeeee!!!!"
                 p  "Uhm yeah, you could say that as well.  "
                 g3  "Though its not much of a hobby. Unless you can win a quiz based on Netflix.  "
@@ -644,6 +666,8 @@ label start:
             
 
             "I did do some acting in school. I guess you could count that.":
+                
+                show dark hair smi01
                 
                 g3  "Wow you mean like school plays.Yeah i used to be the star in them..    "
                 p  "I wasnt any great. A bit here and there.     "
@@ -659,16 +683,21 @@ label start:
 
             " Uhmm. Does playing cricket count? He he":
 
+                
                 g3 "(unimpressed).Oh I just looovvveeee Virat Kohli.   "
                 p  "Yeah he is such a good batsman. Its a strugg....    "
                 g3  "He is so cute. I am so jealous of Anushka  "
                 p  "You just like him because he is cute?  "
+                show dark hair ann02
                 g3  "Duh. Also his abbs. OMGGGG!!!!"
 
                 # > Khushi smiles. Confidence decreases.  
                 $ confidence_meter -= 5
         
+        show dark hair smi01
         g3  "I love music , Come on let's go and do karoake"
+
+        scene pub2
 
         ## Flash_Back
 
@@ -692,6 +721,8 @@ label start:
             
             "Yes":
 
+                show dark hair neu03
+
                 p "Okay sure let's go."
                 # scene - changes to karoake
                 g3 "Go on it's your turn"
@@ -702,6 +733,8 @@ label start:
 
             "No":
 
+                show dark hair ann01
+
                 g3  "Come on don't be a spoilsport."
                 p   "No I don't want to do karoake. I don't like it at all."
 
@@ -709,8 +742,12 @@ label start:
 
     
         p  "Anyways, umm   "
+        
+        show dark hair ann01
         g3  "What? You take hell lot of time to say things.    "
         p  "So whats your cheat day meal like?   "
+        
+        show dark hair neu03
         g3  "(surprised)Hmm Interesting. Didnt see that one coming."
         p  "So? Pizza?   "
         g3  "(embarassed) Actually its chole bhature.he he"
@@ -719,14 +756,17 @@ label start:
 
             "My mom used to make the best chole bhature.":
                             
-                g3 "Everyone's Mom does the best cooking. Im sorry used to?    "
+                g3 "Everyone's Mom does the best cooking. I'm sorry 'used to' ?    "
                 p  "Ah yeah. Well she left me some years back. I dont even know is she is dead or alive.    "
                 p  "Sorry, dont bother yourself  "
+                show dark hair sad01
                 g3  "Oh Im sorry. I didnt know.    "
                 g3  "To be honest, I kind of understand how you feel.  "
                 p  "Your mom also left you ?    "
                 g3  "(embarrased) Not exactly. But i spend all my time with my cook. You could even say she raised me.    "
                 p  "Guess we both miss Chole Bhature too much eh?  "
+                
+                show dark hair smi01
                 g3  "(Laughing) Yeah, now you made me hungry            "
                 
                 $ confidence_meter += 10
@@ -737,6 +777,8 @@ label start:
                 
                 g3  "What?     "
                 p  "I didnt expect you to say that thats all?     "
+                
+                show dark hair ang
                 g3  "(shouting)I am a PUNJABI GIRL at hearttttt.   "
                 p  "uhh yeah sure."
                 n  "Thats cringy"
@@ -747,6 +789,7 @@ label start:
 
             "And Rajma chawal? he he":
 
+                show dark hair smi01
                 g3 "Ya that toooo.  "
                 p  "So how often do you get to eat ?  "
                 g3  "Once every 2-3 months.    "

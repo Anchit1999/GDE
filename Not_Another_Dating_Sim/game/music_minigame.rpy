@@ -38,11 +38,16 @@ label simonguess:
     $ dasign=_return
     if dasign=="bust":
 
-        g2 "Too slow! , It's ok. Better Luck next time"
+        show dark hair smi01
+
+        g3 "Too slow! , It's ok. Better Luck next time"
         $ confidence_meter += 5   
         return
 
     elif dasign!=thesign:
+
+        show dark hair smi01
+
         g3 "Oh no! You missed it!. It's ok. Better Luck next time "
         $ confidence_meter += 10
         return
@@ -56,7 +61,10 @@ label simonguess:
 label simonend:
     if len(sequence)==complete:
 
+        show dark hair smi02
+
         $ confidence_meter += 10
+        show dark hair smi02
         g3 "Wow you were better than I hoped. Im impressed"
 
 
