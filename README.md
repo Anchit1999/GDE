@@ -3,6 +3,7 @@ Status - Images downloaded and loaded
 
 Things Done -
 Story added
+
 Next to do -
 Add images
 Transitions
