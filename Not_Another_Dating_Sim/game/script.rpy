@@ -6,7 +6,7 @@
 
 define p = Character("[name]")
 define r = Character("Rohit")
-define n = Character("Narrator")
+define n = Character(" ",what_prefix="{i}", what_suffix="{/i}")
 
 define g1 = Character("g1")
 define g2 = Character("g2")
@@ -27,7 +27,7 @@ label start:
 
         name = name.strip() or __("Lord Voldemort")
 
-    n "Hi great thanks for joining us on this journey [name]"
+    n "Hi great thanks for joining us on this journey name"
     
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
@@ -111,7 +111,7 @@ label start:
     p  "Owww !"
 
     show male smi02 at mz1
-    r  "Welcome back. Guys this is my friend Hero. We have been together since childhood. He is an engineer at XYZ company."    
+    r  "Welcome back. Guys this is my friend [name]. We have been together since childhood. He is an engineer at XYZ company."    
     show male smi02 at mz2
     p  "(meekly) Hi !!"
 
@@ -147,7 +147,7 @@ label start:
     r "And that's dinner. I am really hungry. Anyone up for some starters."
     
     r "(pulling p closer), this is your chance."
-    
+
     show male smi02 at mz2
     p "Seriously man, i'm sweating buckets here"
     show male smi02 at mz1
@@ -526,8 +526,214 @@ label start:
             jump the_end
 
     label g3_story:
-        pass
+        
+        $ played_karoake_minigame = False
 
+        p  "Ummm  "
+        g3  "Sooooo  "
+        p  "(nervous laughter) Uhh. sooo.... uhh  "
+        g3  "Well are you gonna talk or stay like that ?    "
+        p  "Uh Uh umm"
+        g3  "Gosh are you gonna stay dumb like that?    "
+        p  "Oh sorry. ummm"
+        g3  "OMG, this so weird. Anyways are you on instagram?    "
+        p  " umm. Yeah yeah but I dont use it too often.  "
+        g3  "Oh well then follow me. Or you can even not, I mean I have 30k followers.   "
+        p  "But everyone counts right?    "
+        g3  "(embarrased) Oh yeah totally. Please follow me.   "
+        p  "So how much time on average do you spend there?  "
+        g3  "Well, mostly my manager manages my account. But i like to read comments and give fans what they want."
+        
+        menu:
+
+            "Well its important to be connected to them.":
+                
+                g3  "If the fans turn on you, then its really hard to gain back their trust.    "
+                p  "True that. I guess all celebrities must feel that way.   "
+                g3  "Thats right. So why dont you do me a favor and follow me on Tiktok. My handle is cutiepie420.   "
+                p  "umm uhh.    "
+                g3  "Gosh you arent on TikTok are you?  "
+                p  " sorry im not. umm uhh, I could follow you on Linkedin.  "
+                g3  "You are such a nerd.              "
+
+                $ confidence_meter -= 5
+                # > > Confidence goes down. g3 unimpressed 
+
+
+            "But shouldn't you focus more on other things like your acting.":
+                
+                g3  "I think I know whats important.    "
+                p  "Sorry. I just meant since you are an actress, that should be your strength,right?    "
+                g3  "(angry)Listen, just because you are an engineer and you think you are SO SMART, you dont get to tell me what I should do or what I shouldnt.   "
+                p  "umm uhh.Sorry you are right I shouldnt.    "
+                g3  "(apologetic)I am sorry, I shouldnt have shouted. "
+                g3 "Its just theres so much pressure on me at the moment.   "
+                p  " I understand. Its okay. Life is pretty hard on us sometimes isnt it?  "
+                g3  "Yeah it sometimes feel like such a huge ******* mountain. Its unbearable.  "
+                p  "Well mountains are meant to be climbed arent they?"
+                
+                $ confidence_meter += 10
+
+                # > (Labdhi indifferent) Confidence a bit high
+
+
+            "Well, that comes at cost of self respect doesnt it. He he":
+
+                g3 "What do you know about self respect huh?  "
+                p  "Oh i didnt mean to say..  "
+                g3  "Do you even know what do I have to go through every single day? "
+                p  "Sorry. I didnt mean it that way. I didnt mean to hurt you.    "
+                g3  "(upset) what i have to listen every single day  "
+                p  "Hey, listen i didnt mean to say like that. umm Im quite an idiot. Im really sorry"
+                
+                $ confidence_meter -= 10
+                # > Labdhi indifferent.Confidence level lowers.
+        
+        p  "Anyways you got any hobbies? "
+        g3  "I love dancing and singing.Ever since I was a kid, I used to find every opportunity I could, to dance.  "
+        p  "ohh nice.  "
+        g3  "What about you ?    "
+        p  "uhh I dont know."
+        g3  "Come on. I am trying to convince myself you are not as lame as you look.    "
+        
+
+        menu:
+
+            "Uhmm. Nothing much really. Watching netflix I guess?":
+                
+                g3  "Whats your favorite show there?     "
+                p  "Stranger Things. Its just ...  "
+                g3  "(impressed). so cuuuuttttteeeeeee!!!!"
+                p  "Uhm yeah, you could say that as well.  "
+                g3  "Though its not much of a hobby. Unless you can win a quiz based on Netflix.  "
+                p  "Maybe I could. I dont know  "
+            
+                $ confidence_meter += 5
+            
+
+            "I did do some acting in school. I guess you could count that.":
+                
+                g3  "Wow you mean like school plays.Yeah i used to be the star in them..    "
+                p  "I wasnt any great. A bit here and there.     "
+                g3  "Well as an accomplished actress I can tell you its not about the role, its about how you perform it.  "
+                p  "uhh umm Yeah I guess you are right.   "
+                g3  "To be honest, I didnt think you would be involved in acting."
+                p  "No no, just a bit. He he     "
+
+                # > Show Khushi smiling. Confidence increases.
+
+                $ confidence_meter += 10
+
+
+            " Uhmm. Does playing cricket count? He he":
+
+                g3 "(unimpressed).Oh I just looovvveeee Virat Kohli.   "
+                p  "Yeah he is such a good batsman. Its a strugg....    "
+                g3  "He is so cute. I am so jealous of Anushka  "
+                p  "You just like him because he is cute?  "
+                g3  "Duh. Also his abbs. OMGGGG!!!!"
+
+                # > Khushi smiles. Confidence decreases.  
+                $ confidence_meter -= 5
+        
+        g3  "I love music , Come on let's go and do karoake"
+
+        ## Flash_Back
+
+        # Scene change - school event.
+
+        n  "You suddenly had a flashback to your 7th grade annual function event."
+
+        n  "You remember how you finally had the guts to go on stage and sing your hearts out, you had practiced and learnt all the lyrics."
+
+        # Scene change - on stage public humiliation , people laughing two or three scenes.
+
+        n  "But seeing the audience of over 500 , you forgot everything and ran away from the stage."
+
+        n  "The jeering, taunts and bullying that you had to face the entire year. That was the year when you developed the stutter."
+        
+        # Scene change - present
+        
+        g3 "Come on let's go for karoake ?"
+        
+        menu:
+            
+            "Yes":
+
+                p "Okay sure let's go."
+                # scene - changes to karoake
+                g3 "Go on it's your turn"
+
+                call simon(complete=8, toadd=2)
+                
+                $ played_karoake_minigame = True
+
+            "No":
+
+                g3  "Come on don't be a spoilsport."
+                p   "No I don't want to do karoake. I don't like it at all."
+
+                $ confidence_meter -= 10
+
+    
+        p  "Anyways, umm   "
+        g3  "What? You take hell lot of time to say things.    "
+        p  "So whats your cheat day meal like?   "
+        g3  "(surprised)Hmm Interesting. Didnt see that one coming."
+        p  "So? Pizza?   "
+        g3  "(embarassed) Actually its chole bhature.he he"
+    
+        menu:
+
+            "My mom used to make the best chole bhature.":
+                            
+                g3 "Everyone's Mom does the best cooking. Im sorry used to?    "
+                p  "Ah yeah. Well she left me some years back. I dont even know is she is dead or alive.    "
+                p  "Sorry, dont bother yourself  "
+                g3  "Oh Im sorry. I didnt know.    "
+                g3  "To be honest, I kind of understand how you feel.  "
+                p  "Your mom also left you ?    "
+                g3  "(embarrased) Not exactly. But i spend all my time with my cook. You could even say she raised me.    "
+                p  "Guess we both miss Chole Bhature too much eh?  "
+                g3  "(Laughing) Yeah, now you made me hungry            "
+                
+                $ confidence_meter += 10
+                # > Confidence boost. Show Khushi blushing. 
+
+
+            "Wow. My turn to say didnt see that one coming ":
+                
+                g3  "What?     "
+                p  "I didnt expect you to say that thats all?     "
+                g3  "(shouting)I am a PUNJABI GIRL at hearttttt.   "
+                p  "uhh yeah sure."
+                n  "Thats cringy"
+                # > > (Khushi indifferent) Confidence lowers
+
+                $ confidence_meter -= 5
+
+
+            "And Rajma chawal? he he":
+
+                g3 "Ya that toooo.  "
+                p  "So how often do you get to eat ?  "
+                g3  "Once every 2-3 months.    "
+                p  "uhh. Wow, you have my respect. Unbelievable.  "
+
+                #> Khushi happy.Confidence level increases.
+                $ confidence_meter += 5
+    
+    
+    
+        if confidence_meter >= 35:
+            call win_ending pass(girl = g3)
+            jump the_end
+        else:
+            call loss_ending pass(girl = g3)
+            jump the_end
+
+
+    
     label win_ending(girl):
 
         girl "Anyways, I had a wonderful time."
@@ -538,14 +744,19 @@ label start:
             p  "well, lets have a good old gujrati thali then."
         if girl == g2:
             p  "Well, maybe we can  rewatch Koi Mil Gaya then."
-        
+        if girl == g3:
+            p  "Well, we can maybe try out this Chole Bhatura stand then?"
+
         girl "Sounds like a date, done 😊"
         return
 
     label loss_ending(girl):
         girl  "Well, I have to go."
-        p  "(low confidence)umm okay."
+        p  "(low confidence) umm okay."
         return
+
+     
+     
 
 
     
@@ -560,46 +771,7 @@ label start:
 
 
 
-    # # KAROAKE
-    #     g3  "I love music , Come on let's go and do karoake"
-
-    #     ## Flash_Back
-
-    #     # Scene change - school event.
-
-    #     n  "You suddenly had a flashback to your 7th grade annual function event."
-
-    #     n  "You remember how you finally had the guts to go on stage and sing your hearts out, you had practiced and learnt all the lyrics."
-
-    #     # Scene change - on stage public humiliation , people laughing two or three scenes.
-
-    #     n  "But seeing the audience of over 500 , you forgot everything and ran away from the stage."
-
-    #     n  "The jeering, taunts and bullying that you had to face the entire year. That was the year when you developed the stutter."
-        
-    #     # Scene change - present
-        
-    #     n "Do you still want to play the minigame."
-        
-    #     menu:
-            
-    #         "Yes":
-
-    #             p "Let's do karoake"
-    #             # scene - changes to karoake
-    #             g3 "Go on it's your turn"
-
-    #             call fifteen_game
-                
-    #             $ played_pong_minigame = True
-
-    #         "No":
-
-    #             g3  "Come on don't be a spoilsport."
-    #             p   "No I don't want to do karoake. I don't like it at all."
-
-    #             $ confidence_meter -= 10
-
+    
     label the_end:
     n "The End"
 
