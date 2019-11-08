@@ -376,6 +376,7 @@ label start:
         p  "Huh? Oh haha. I am actually from IIT-D.."
         g2  "Delhi. Not too bad. Im impressed.    "
         p  "No actually. Its Dharwad. he he "
+        hide ros_akuwaraia1
         show ros_defa1
         g2  "Oh I am sorry. Well i hope they atleast have chairs xD. "
         p  "Uhmm uhh  "
@@ -386,7 +387,8 @@ label start:
         menu:
 
             "So is it like Suits. Making mergers and looking smart.":
-                
+                hide ros_defa1
+                show ros_waraia1
                 g2  "Well not sure about smart. But I do love wearing those dresses."
                 p  "He He. Btw have you finished the show?"
                 g2  "Damn right xD. Yeah completed in a weekend. "
@@ -396,7 +398,8 @@ label start:
                 # > > Confidence boost. Show Dhwani blushing. 
 
             "Yeah, keep the guys happy. Tough indeed.He he":
-                    
+                hide ros_defa1
+                show ros_komarua1
                 g2  "You do know right what you just said,Right?.  "
                 p  "Uhm did I say something bad?  "
                 g2  "Its people like you who make it so hard for girls to survive. Its a real shame.  "
@@ -408,14 +411,16 @@ label start:
 
 
             "Yeah being a secretrary must be tough.":
-
+                hide ros_defa1
+                show ros_ikaria3
                 g2  "Excuse me. I have done law from NLU.Ever heard of it?Im a junior associate at DEF law firm  "
                 p  "Oh I just thought..  "
                 g2  "And even if I was a secretrary. Even then I deserve to be respected no?  "
                 p  "Sorry. I didnt mean it that way. I didnt mean to hurt you. "
 
                 $ confidence_meter -= 10
-
+        # scene pub2
+        show ros_defa1
         p  "Anyways you got any hobbies? "
         g2  "Yeah I like travelling. I recently travelled to the States.  "
         p  "uhh which states?  "
@@ -426,7 +431,8 @@ label start:
         menu:
 
             "Uhmm. Nothing much really. Watching netflix I guess?":
-                
+                hide ros_defa1
+                show ros_ikaria3
                 g2  "Wow. Dont you get bored ?    "
                 p  "uhmm there are good shows like sacred games,etc. So keeps me busy.  "
                 g2  "(unimpressed).Hmm sure"
@@ -436,7 +442,8 @@ label start:
  
 
             "Well me too. Though I havent really gone beyond the shores yet.":
-                    
+                hide ros_defa1
+                show ros_waraia1
                 g2 " Well I havent roamed around India much. Whats your favorite place.    "
                 p " I like mountains. I find Manali to be quite nice.    "
                 g2 " Yeah but still its so lame unlike the Alps.  "
@@ -449,7 +456,9 @@ label start:
 
 
             " Uhmm. Does playing cricket count? He he":
-
+                
+                hide ros_defa1
+                show ros_ikaria3
                 g2 "(unimpressed).Typical Indian hobby.   "
                 p  "Well its fun. Did you follow the world cup?    "
                 g2  "Yeah Yeah a bit. Everyone was following so i saw a bit.  "
@@ -458,23 +467,27 @@ label start:
 
                 $ confidence_meter += 5
         
+        show ros_defa1
         p  "Hey what's that popping out of your coat pocket?"
         g2  "Ah this thing , it's a sliding puzzle. I use it as a stress-buster. Do you wanna try it ?"  
         
         # Relevant cutscene backstory
-
+        scene pub2 with fade
         n  "Stress buster huh , well I wish I had something of this sorts when I was younger "
 
         n  "Anything to distract me from the rants of my drunk,senseless father. And forget the string of affairs my mom had. All this happening the year of my board exams."
 
         n  "Hmm , no p you are stronger than this , don't live in the past , don't it will only bring you pain. Think of positive things. "
 
+        scene pub2 with fade
+        show ros_defa1
         g2 "Hello !! , Earth to p , Earth to p. Do you wanna try it."
 
         menu:
             
             "Yes":
-
+                hide ros_defa1
+                show ros_waraia1
                 p "Yeah sure I will give it a try. (in a shaky voice)."
                 # scene - changes to karoake
                 
@@ -483,12 +496,14 @@ label start:
                 $ played_puzzle_minigame = True
                 
             "No":
-
+                hide ros_defa1
+                show ros_komarua1
                 g1  "Come on don't be a spoilsport."
                 p   "No I don't want to do it. I don't like it at all."
 
                 $ confidence_meter -= 10
 
+        show ros_defa1
         p  "So whats your favorite movie?"
         g2  "Oh I love rom coms and sci-fi. So my favurite movies are Princess Diaries and Interstellar.  "
         p  "Nice. Yeah even like I to watch movies.  "
@@ -501,6 +516,8 @@ label start:
                 g2  "Interesting. Its basically a ripoff of ET,but sure.    ?"
                 p  "Actually thats not entirely true. It was initially a plan of Satyajit Ray in collaboration with some American production house. Then those guys actually leaked the script to Steven Spielberg.  ?"
                 p  "Even Rakesh Roshan mentioned it in his press conference.  ?"
+                hide ros_defa1
+                show ros_akuwaraia1
                 g2  "I have to say, i didnt see that one coming.    ?"
                 p  "Actually its a shame as to how often we Indians dont get credit. Radio, Airplanes, the list goes on.  ?"
                 g2  "(embarrased) I feel embarassed to not know about this.?"
@@ -518,18 +535,20 @@ label start:
                
                 $ confidence_meter -= 5
 
-                # > (Labdhi indifferent) Confidence a bit high
+                # > (Labdhi indifferent Confidence a bit high
 
 
             "I liked Hera Pheri.":
 
+                hide ros_defa1
+                show ros_ikaria3
                 g2 "Isnt it a bit too forced and misogynist.  "
                 p  "Well, the idea of a movie is to entertain and its a good light hearted one watch.  "
                 g2  "Still, I think there shouldnt be any room for regressive thoughts.    "
                 p  "Guess we agree to disagree. He he"
                 
                 $ confidence_meter -= 10
-                # > Labdhi indifferent.Confidence level lowers.
+                # > Labdhi indifferent Confidence level lowers.
     
         if confidence_meter >= 35:
             call win_ending pass(girl = g2)
