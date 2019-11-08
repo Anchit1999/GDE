@@ -235,11 +235,12 @@ label pong_minigame:
     # show g1 vhappy
 
     if _return == "g1":
-
+        show pink hair smile01
         g1 "It's ok. Better Luck next time"
         $ confidence_meter += 5
         
-    else:   
+    else:
+        show pink hair smile02
         g1 "Wow you were better than I hoped. I'm impressed"
         $ confidence_meter += 10
 
