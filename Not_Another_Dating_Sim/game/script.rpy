@@ -20,14 +20,14 @@ label start:
 
     $ confidence_meter = 25
 
-    n "Hi, welcome to our humble game. Before you begin please tell us your name."
+    n "Hi, welcome to our humble game. Before you begin please tell us your [name]."
 
     python:
         name = renpy.input(_("What's your name?"))
 
         name = name.strip() or __("Lord Voldemort")
 
-    n "Hi great thanks for joining us on this journey [name]"
+    n "Hi [name], great thanks for joining us on this journey "
     
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
@@ -278,9 +278,8 @@ label start:
         g1  "Oh Wow , is that people playing air hockey, come on let's go and play too."
 
         ## Flash_Back
-        scene pub2 with fade
         # Scene change - arcade game.
-        scene arcade1 with fade
+        scene arcade1 with Pixellate(2.0,5)
         n  "Your thoughts turn back to 26.05.2008 the last truly happy day of your life. Your parents had taken you out to a gaming arcade for your 11th birthday "
 
         n  "Ah it was so much fun playing all the games with your mom dad and sister, such a happy family."
@@ -475,11 +474,11 @@ label start:
         # Relevant cutscene backstory
         scene pub2 with fade
         n  "Stress buster huh , well I wish I had something of this sorts when I was younger "
-        scene drunky with fade
+        scene drunky with Pixellate(2.0,5)
         n  "Anything to distract me from the rants of my drunk,senseless father."
         scene gandi-mom with fade
         n "And forget the string of affairs my mom had. All this happening the year of my board exams."
-        scene sundary with fade        
+        scene sundary with fade
         n  "Hmm , no p you are stronger than this , don't live in the past , don't it will only bring you pain. Think of positive things. "
 
         scene pub2 with fade
@@ -493,7 +492,7 @@ label start:
                 show ros_waraia1
                 p "Yeah sure I will give it a try. (in a shaky voice)."
                 # scene - changes to karoake
-                scene indoor with fade
+                scene bar_indoor with fade
                 call fifteen_game
                 
                 $ played_puzzle_minigame = True
@@ -701,24 +700,25 @@ label start:
         show dark hair smi01
         g3  "I love music , Come on let's go and do karoake"
 
-        scene pub2
+        # scene pub2
 
         ## Flash_Back
 
         # Scene change - school event.
-        show stage1 with fade
+        scene stage1 with Pixellate(2.0,5)
         n  "You suddenly had a flashback to your 7th grade annual function event."
 
         n  "You remember how you finally had the guts to go on stage and sing your hearts out, you had practiced and learnt all the lyrics."
 
         # Scene change - on stage public humiliation , people laughing two or three scenes.
-        show sadkiddo with fade
+        scene sadkiddo with fade
         n  "But seeing the audience of over 500 , you forgot everything and ran away from the stage."
-        show bully with fade
+        scene bully with fade
         n  "The jeering, taunts and bullying that you had to face the entire year. That was the year when you developed the stutter."
         
         # Scene change - present
-
+        scene pub2 with fade
+        show dark hair smi01
         g3 "Come on let's go for karoake ?"
         
         menu:
@@ -817,6 +817,12 @@ label start:
     
     label win_ending(girl):
 
+        if girl == g1:
+            show pink hair smile04
+        if girl == g2:
+            show ros_waraia2
+        if girl == g3:
+            show dark hair smi02
         girl "Anyways, I had a wonderful time."
         p "Sure,me too. Hey are you free tomorrow afternoon"
         girl  "mmmmm"
@@ -846,8 +852,8 @@ image blackflash:
 
     Solid("#000")
     alpha 0.0
-    linear 0.25 alpha 0.2
-    linear 0.75 alpha 0.6
+    linear 0.25 alpha 0.4
+    # linear 0.75 alpha 0.6
     linear 1.0 alpha 0.8
     linear 0.25 alpha 0.0
 
