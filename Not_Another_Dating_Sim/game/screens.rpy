@@ -231,9 +231,25 @@ screen choice(items):
         for i in items:
             textbutton i.caption action i.action
 
+# screen choice1(items):
+#     window:
+#         at cir
+#         style_prefix "choice"
+        
+#         vbox:
+#             for i in items:
+#                 textbutton i.caption action i.action
+# ## When this is true, menu captions will be spoken by the narrator. When false,
+# ## menu captions will be displayed as empty buttons.
+# transform cir:
+#     xalign 1.0 yalign 0.0
 
-## When this is true, menu captions will be spoken by the narrator. When false,
-## menu captions will be displayed as empty buttons.
+#      # Take 1.0 seconds to move things back to the left.
+#     linear 1.0 xalign 0.0
+#     ease 1.0 truecenter
+#     alignaround (.5, .5)
+#     linear 10.0 yalign 0.0 clockwise circles 3
+
 define config.narrator_menu = True
 
 
