@@ -310,3 +310,159 @@ Hero : well, we can maybe rewatch Koi Mil Gaya then.
 Lose:  
 Labdhi : Well, I have to go.  
 Hero : (low confidence)umm okay. 
+
+### Khushi
+Hero : Ummm  
+Khushi : Sooooo  
+Hero : (nervous laughter) Uhh. sooo.... uhh  
+Khushi : Well are you gonna talk or stay like that ?    
+Hero : Uh Uh umm
+Khushi : Gosh are you gonna stay dumb like that?    
+Hero : Oh sorry. ummm
+Khushi : OMG, this so weird. Anyways are you on instagram?    
+Hero :  umm. Yeah yeah but I dont use it too often.  
+Khushi : Oh well then follow me. Or you can even not, I mean I have 30k followers.   
+Hero : But everyone counts right?    
+Khushi : (embarrased) Oh yeah totally. Please follow me.   
+Hero : So how much time on average do you spend there?  
+Khushi : Well, mostly my manager manages my account. But i like to read comments and give fans what they want.    
+`Key comment`  
+C1 : Well its important to be connected to them.   
+C2 : But shouldnt you focus more on other things like your acting.    
+C3 : Well, that comes at cost of self respect doesnt it. He he  
+
+If C1:  
+    Khushi : If the fans turn on you, then its really hard to gain back their trust.    
+    Hero : True that. I guess all celebrities must feel that way.   
+    Khushi : Thats right. So why dont you do me a favor and follow me on Tiktok. My handle is cutiepie420.   
+    Hero : umm uhh.    
+    Khushi : Gosh you arent on TikTok are you?  
+    Hero :  sorry im not. umm uhh, I could follow you on Linkedin.  
+    Khushi : You are such a nerd.  
+> Confidence goes down. Khushi unimpressed 
+  
+If C2:  
+    Khushi : I think I know whats important.    
+    Hero : Sorry. I just meant since you are an actress, that should be your strength,right?    
+    Khushi : (angry)Listen, just because you are an engineer and you think you are SO SMART, you dont get to tell me what I should do or what I shouldnt.   
+    Hero : umm uhh.Sorry you are right I shouldnt.    
+    Khushi : (apologetic)I am sorry, I shouldnt have shouted. Khushi: Its just theres so much pressure on me at the moment.   
+    Hero :  I understand. Its okay. Life is pretty hard on us sometimes isnt it?  
+    Khushi : Yeah it sometimes feel like such a huge ******* mountain. Its unbearable.  
+    Hero : Well mountains are meant to be climbed arent they?  
+> Show Khushi smiling. Confidence increases.
+
+If C3:  
+    Khushi: What do you know about self respect huh?  
+    Hero : Oh i didnt mean to say..  
+    Khushi : Do you even know what do I have to go through every single day? 
+    Hero : Sorry. I didnt mean it that way. I didnt mean to hurt you.    
+    Khushi : (upset) what i have to listen every single day  
+    Hero : Hey, listen i didnt mean to say like that. umm Im quite an idiot. Im really sorry
+> Show Khushi upset. Confidence takes a nose dive  
+
+Hero : Anyways you got any hobbies? 
+Khushi : I love dancing and singing.Ever since I was a kid, I used to find every opportunity I could, to dance.  
+Hero : ohh nice.  
+Khushi : What about you ?    
+Hero : uhh I dont know.
+Khushi : Come on. I am trying to convince myself you are not as lame as you look.    
+`Key Comment`  
+C1 : Uhmm. Nothing much really. Watching netflix I guess?    
+C2 : I did do some acting in school. I guess you could count that.    
+C3 : Uhmm. Does playing cricket count? He he  
+
+If C1:  
+    Khushi : Whats your favorite show there?     
+    Hero : Stranger Things. Its just ...  
+    Khushi : (impressed). so cuuuuttttteeeeeee!!!!
+    Hero : Uhm yeah, you could say that as well.  
+    Khushi : Though its not much of a hobby. Unless you can win a quiz based on Netflix.  
+    Hero : Maybe I could. I dont know  
+> Confidence increases little bit. Khushi smiling 
+  
+If C2:  
+    Khushi : Wow you mean like school plays.Yeah i used to be the star in them..    
+    Hero : I wasnt any great. A bit here and there.     
+    Khushi : Well as an accomplished actress I can tell you its not about the role, its about how you perform it.  
+    Hero : uhh umm Yeah I guess you are right.   
+    Khushi : To be honest, I didnt think you would be involved in acting.
+    Hero : No no, just a bit. He he     
+> Show Khushi smiling. Confidence increases.
+
+If C3:  
+    Khushi: (unimpressed).Oh I just looovvveeee Virat Kohli.   
+    Hero : Yeah he is such a good batsman. Its a strugg....    
+    Khushi : He is so cute. I am so jealous of Anushka  
+    Hero : You just like him because he is cute?  
+    Khushi : Duh. Also his abbs. OMGGGG!!!!  
+> Khushi smiles. Confidence decreases.  
+
+Khushi : So do you want to play a game?  
+Hero : What do you have in mind?  
+Khushi : (One of the minigames, pref - karoke)
+> Flashback to that game cut seq. Relevant generic story. Option - Do you want to play this game or not.
+
+If Yes and Win:   
+    Khushi : Wow you were better than I hoped. Im impressed   (Confidence high)  
+If Yes and Lose:  
+    Khushi : Its ok. Better Luck next time  
+    (Confidence remains same)  
+If No:  
+    Hero : No i dont want to play. Lets not talk about it.  
+(Prob)  
+Op1 : Khushi : Come on dont be a spoilt sport  
+      Hero:  No i dont want to play. I dont like it at all  
+      (Confidence low)  
+Op2 : Khushi : Oh sorry.   
+        Hero: Its ok. Bad memories attached thats all.  
+
+Hero : Anyways, umm   
+Khushi : What? You take hell lot of time to say things.    
+Hero : So whats your cheat day meal like?   
+Khushi : (surprised)Hmm Interesting. Didnt see that one coming.
+Hero : So? Pizza?   
+Khushi : (embarassed) Actually its chole bhature.he he   
+`Key Comment`  
+C1 : My mom used to make the best chole bhature.  
+C2 : Wow. My turn to say didnt see that one coming    
+C3 : And Rajma chawal? he he    
+
+If C1:  
+    Khushi: Everyone's Mom does the best cooking. Im sorry used to?    
+    Hero : Ah yeah. Well she left me some years back. I dont even know is she is dead or alive.    
+    Hero : Sorry, dont bother yourself  
+    Khushi : Oh Im sorry. I didnt know.    
+    Khushi : To be honest, I kind of understand how you feel.  
+    Hero : Your mom also left you ?    
+    Khushi : (embarrased) Not exactly. But i spend all my time with my cook. You could even say she raised me.    
+    Hero : Guess we both miss Chole Bhature too much eh?  
+    Khushi : (Laughing) Yeah, now you made me hungry
+> Confidence boost. Show Khushi blushing. 
+  
+If C2:  
+    Khushi : What?     
+    Hero : I didnt expect you to say that thats all?     
+    Labdhi : (shouting)I am a PUNJABI GIRL at hearttttt.   
+    Hero : uhh yeah sure.
+    Narrator : Thats cringy
+> (Khushi indifferent) Confidence lowers
+
+If C3:  
+    Khushi: Ya that toooo.  
+    Hero : So how often do you get to eat ?  
+    Khushi : Once every 2-3 months.    
+    Hero : uhh. Wow, you have my respect. Unbelievable.  
+> Khushi happy.Confidence level increases.
+
+Based on confidence make decision.  
+Win:  
+Khushi: Anyways, I had a wonderful time. 
+Hero : Sure,me too. Hey are you free for lunch tomorrow
+Khushi : mmmmm
+Khushi : (softly) yeah
+Hero : well, we can maybe try out this Chole Bhatura stand then?
+
+Lose:  
+Khushi : Well, I have to go.  
+Hero : (low confidence)umm okay.  
