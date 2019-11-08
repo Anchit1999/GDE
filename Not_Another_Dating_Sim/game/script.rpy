@@ -20,7 +20,7 @@ label start:
 
     $ confidence_meter = 25
 
-    n "Hi, welcome to our humble game. Before you begin please tell us your [name]."
+    n "Hi, welcome to our humble game. Before you begin please tell us your name."
 
     python:
         name = renpy.input(_("What's your name?"))
@@ -170,6 +170,7 @@ label start:
     label g1_story:
 
         $ played_pong_minigame = False
+        
         # show g1 neutral
         scene pub2 with dissolve
         show pink hair neutral01
@@ -238,7 +239,12 @@ label start:
         p  "Oh what is your favourite dish to cook ?  "
         g1  "I like to cook Gujrati food."
         
-        menu:
+        $ rigged = ""
+        if confidence_meter < 20:
+            $ rigged = "rigged_choice"
+        else:
+            $ rigged = "choice"
+        menu(screen=rigged):
 
             "Oh thats pretty lame. You should try more awesome things like pasta and burger.  ":
                 
@@ -365,10 +371,14 @@ label start:
     label g2_story:
 
         $ played_puzzle_minigame = False
+        $ really_bad_choice = False
         
         scene pub2 with dissolve
-        show ros_defa1
+        
 
+        
+
+        show ros_defa1
         p  "Ummm  "
         g2  "So hotshot XYZ, you must be smart  "
         p  "(nervous laughter) Uhh. what can i say. he he  "
@@ -385,11 +395,20 @@ label start:
         p  "Uhmm uhh  "
         p  "So......  "
         p  "So corporate law and all? Must be taxing.  "
-        g2  "Yeah its not easy. Really stressful. "
+        
+        label convo_start:
+        if really_bad_choice == True:
+            scene pub2 red
+            show ros_ikaria2   
+            g2  "Yeah its not easy. Really stressful. "
 
         menu:
 
             "So is it like Suits. Making mergers and looking smart.":
+                if really_bad_choice == True:
+                    n "What's happening !!, why did I say it , why is she repeating the same thing again and again."
+                    jump convo_start
+
                 hide ros_defa1
                 show ros_waraia1
                 g2  "Well not sure about smart. But I do love wearing those dresses."
@@ -402,18 +421,38 @@ label start:
 
             "Yeah, keep the guys happy. Tough indeed.He he":
                 hide ros_defa1
-                show ros_komarua1
-                g2  "You do know right what you just said,Right?.  "
-                p  "Uhm did I say something bad?  "
-                g2  "Its people like you who make it so hard for girls to survive. Its a real shame.  "
-                p  "Im so sorry. I didnt mean to say that."
-                
-                $ confidence_meter -= 5
+                show ros_ikaria4
+               
+                if really_bad_choice == False:
+                    g2  "You do know right what you just said,Right?.  "
+                    p  "Uhm did I say something bad?  "
+                    g2  "Its people like you who make it so hard for girls to survive. Its a real shame.  "
+                    p  "Im so sorry. I didnt mean to say that."
+                    
+                    $ confidence_meter -= 25
 
+                    g2 "Oh really you didn't mean say that you misogynist b******."
+                    g2 "I DARE YOU TO SAY IT AGAIN."
+
+                if really_bad_choice == False:
+                    $ really_bad_choice = True
+                    jump convo_start                 
+                
+                if really_bad_choice == True:
+                    scene pub2 red
+                    show ros_ikaria2g
+                    g2 "Wow, what sort of monster parents grew up such a child"
+                    call loss_ending(girl = g2)
+                    jump the_end
                 # > Show Dhwani excited. Confidence becomes little better
 
 
             "Yeah being a secretrary must be tough.":
+                if really_bad_choice == True:
+                    n "What's happening !!, why did I say it , why is she repeating the same thing again and again."
+                    jump convo_start
+                
+                
                 hide ros_defa1
                 show ros_ikaria3
                 g2  "Excuse me. I have done law from NLU.Ever heard of it?Im a junior associate at DEF law firm  "
@@ -503,7 +542,7 @@ label start:
             "No":
                 hide ros_defa1
                 show ros_komarua1
-                g1  "Come on don't be a spoilsport."
+                g2  "Come on don't be a spoilsport."
                 p   "No I don't want to do it. I don't like it at all."
 
                 $ confidence_meter -= 10
