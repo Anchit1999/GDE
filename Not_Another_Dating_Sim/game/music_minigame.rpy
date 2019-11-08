@@ -37,19 +37,29 @@ label simonguess:
     call screen simoncheck
     $ dasign=_return
     if dasign=="bust":
-        "Too slow!"
+
+        g2 "Too slow! , It's ok. Better Luck next time"
+        $ confidence_meter += 5   
         return
+
     elif dasign!=thesign:
-        "Oh no! You missed it!"
+        g3 "Oh no! You missed it!. It's ok. Better Luck next time "
+        $ confidence_meter += 10
         return
+    
     if dasign==thesign:
         $ i+=1
         if i==len(sequence):
             jump simonend
     jump simonguess
+
 label simonend:
     if len(sequence)==complete:
-        "You won!"
+
+        $ confidence_meter += 10
+        g3 "Wow you were better than I hoped. Im impressed"
+
+
         return
     jump simonturn
     
