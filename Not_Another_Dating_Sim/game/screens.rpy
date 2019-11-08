@@ -8,6 +8,26 @@ init offset = -1
 ################################################################################
 ## Styles
 ################################################################################
+init -1 style edited is default:
+    font "gui/fonts/VerilySerifMono.otf"
+    kerning 8
+    outlines [(10, "#000", 0, 0)]
+    xpos gui.text_xpos
+    xanchor gui.text_xalign
+    xsize gui.text_width
+    ypos gui.text_ypos
+    text_align gui.text_xalign
+    # layout ("subtitle" if gui.text_xalign else "tex")
+init -1 style normal is default:
+    properties gui.text_properties()
+    language gui.language
+    xpos gui.text_xpos
+    xanchor gui.text_xalign
+    xsize gui.text_width
+    ypos gui.text_ypos
+
+    text_align gui.text_xalign
+    # layout ("subtitle" if gui.text_xalign else "tex")
 
 style default:
     properties gui.text_properties()
@@ -688,7 +708,7 @@ style slot_time_text is slot_button_text
 style slot_name_text is slot_button_text
 
 style page_label:
-    xpadding 50
+    xpadding 50 
     ypadding 3
 
 style page_label_text:
