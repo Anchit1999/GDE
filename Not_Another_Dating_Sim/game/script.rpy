@@ -429,6 +429,13 @@ label start:
         
         # Relevant cutscene backstory
 
+        n  "Stress buster huh , well I wish I had something of this sorts when I was younger "
+
+        n  "Anything to distract me from the rants of my drunk,senseless father. And forget the string of affairs my mom had. All this happening the year of my board exams."
+
+        n  "Hmm , no p you are stronger than this , don't live in the past , don't it will only bring you pain. Think of positive things. "
+
+        g2 "Hello !! , Earth to p , Earth to p. Do you wanna try it."
 
         menu:
             
