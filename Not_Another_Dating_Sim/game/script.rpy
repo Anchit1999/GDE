@@ -20,14 +20,14 @@ label start:
 
     $ confidence_meter = 25
 
-    n "Hi, welcome to our humble game. Before you begin please tell us your [[name]]."
+    n "Hi, welcome to our humble game. Before you begin please tell us your name."
 
     python:
         name = renpy.input(_("What's your name?"))
 
         name = name.strip() or __("Lord Voldemort")
 
-    n "Hi great thanks for joining us on this journey name"
+    n "Hi great thanks for joining us on this journey [name]"
     
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
@@ -71,7 +71,7 @@ label start:
 
     r "Arre why are you so concerned?" 
   
-    p "(stuttering) I have avoided all humanity uptill now and you want me to talk to 3 beautifull girls."
+    p "(stuttering) I have avoided all humanity uptill now and you want me to talk to 3 beautiful girls."
     # with Fade(5.0) zorder 10
     show blackflash zorder 50
     # > p shaking. Depict by bluring the screen or something
@@ -105,7 +105,7 @@ label start:
     p  "Owww !"
 
     show male smi02 at mz1
-    r  "Welcome back. Guys this is my friend [name]. We have been together since childhood. He is an engineer at XYZ company."    
+    r  "Welcome back. Guys this is my friend [name]. We have been together since childhood. He is an engineer at racebook."    
     show male smi02 at mz2
     p  "(meekly) Hi !!"
 
@@ -140,7 +140,7 @@ label start:
     show male smi02 at mz1
     r "And that's dinner. I am really hungry. Anyone up for some starters."
     
-    r "(pulling p closer), this is your chance."
+    r "(pulling [name] closer), this is your chance."
 
     show male smi02 at mz2
     p "Seriously man, i'm sweating buckets here"
@@ -477,11 +477,11 @@ label start:
 
         n  "Anything to distract me from the rants of my drunk,senseless father. And forget the string of affairs my mom had. All this happening the year of my board exams."
 
-        n  "Hmm , no p you are stronger than this , don't live in the past , don't it will only bring you pain. Think of positive things. "
+        n  "Hmm , no [name] you are stronger than this , don't live in the past , don't it will only bring you pain. Think of positive things. "
 
         scene pub2 with fade
         show ros_defa1
-        g2 "Hello !! , Earth to p , Earth to p. Do you wanna try it."
+        g2 "Hello !! , Earth to [name] , Earth to [name]. Do you wanna try it."
 
         menu:
             
