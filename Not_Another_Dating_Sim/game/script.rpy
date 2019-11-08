@@ -18,7 +18,7 @@ define g3 = Character("g3") # dark hair
 
 label start:
 
-    $ confidence_meter = 25
+    $ confidence_meter = 50
 
     n "Hi, welcome to our humble game. Before you begin please tell us your name."
 
@@ -46,7 +46,7 @@ label start:
 
     r "Hey man why so serious? Its been such a hectic couple of months and I just want to relax today."
 
-    p "(nervously) Hey I am really happy for you,its just I dont like being with so many people."
+    p "(nervously) Hey I am really happy for you,its just I dont like being with so many people." with vpunch
     
     r "Come on, Loosen up. What the ..."
     
@@ -63,12 +63,14 @@ label start:
     
     p "How do you know them? "
 
+    show male sly01 with dissolve
     r "Oh we were in school together. I wasnt close to them but knew them well."
 
     r "Come lets catch up with them."
 
     p "What? No No. What will i do, i dont even know them."
 
+    show male sly02 with dissolve
     r "Arre why are you so concerned?" 
   
     p "(stuttering) I have avoided all humanity uptill now and you want me to talk to 3 beautiful girls."
@@ -79,7 +81,7 @@ label start:
     n "So Rohit pulled me and I was totally uncomfortable"
     hide male smi02
     
-    show pink hair smile01
+    show pink hair smile01 with moveinright
     g1 "Hey Hey Hey!!!! Look who showed up"
     show pink hair smile01 at ph1
 
@@ -95,13 +97,13 @@ label start:
     show dark hair smi01 at dh1 with dissolve
     g3 "Dont flatter yourself. Well we ran into each other the other day and decided to catch up properly. After all the stress is so high, our social lives have taken a collective dump."
 
-    show pink hair smile01 at phz1
+    show pink hair sad01 at phz1
     g1 "Hey is he okay ?"
     show pink hair smile01 at phz2
 
     #  Panting. Can be depicted by some random transition of scenes, moving the characters
 
-    n  "Suddenly, Rohit hits me"
+    n  "Suddenly, Rohit hits me" with vpunch
     p  "Owww !"
 
     show male smi02 at mz1
@@ -140,14 +142,17 @@ label start:
     show male smi02 at mz1
     r "And that's dinner. I am really hungry. Anyone up for some starters."
     
+    hide dark hair ang with dissolve
+    hide pink hair smile01 with dissolve
+    hide ros_akuwaraia1 with dissolve
+    hide male smi02 with dissolve
+    show male smi02
     r "(pulling [name] closer), this is your chance."
 
-    show male smi02 at mz2
+    show male smi02
     p "Seriously man, i'm sweating buckets here"
-    show male smi02 at mz1
     r "Live a little buddy."
-    show male smi02 at mz2
-    
+    hide male smi02
     label selectgirl:
 
         n " Which girl do you wanna talk to more ?"
@@ -177,11 +182,12 @@ label start:
         p  "Ummm  "
         g1  "Uhhh  "
         p  "(nervous laughter) Uhh  "
-        show pink hair neutral02
+        show pink hair smile03 with dissolve
         g1  "Sorry. I must be boring you. uhh  "
         p  "No no not at all. I'm just not used to this.  "
         g1  "Well to be honest me too. He he  "
         p  "So what do you teach?? Arts?  "
+        show pink hair neutral01 with dissolve
         g1  "No I teach history to senior students "
 
         n  "How do you take this conservation forward."
@@ -192,7 +198,7 @@ label start:
                 # n "Good Choice"
 
                 # show g1 happy
-                show pink hair smile01
+                show pink hair smile01 with dissolve
                 g1 "Yeah not many people realize how hard it is.  "
                 p  "But I am sure it's rewarding.   "
                 g1 "Yeah sure is. Always feel happy to see a successful student.  "
@@ -207,7 +213,7 @@ label start:
                 # n "Bad Choice"
                 
                 # show g1 annoyed
-                show pink hair annoyed01
+                show pink hair annoyed01 with dissolve
                 g1 "Well those who forget history are doomed to repeat it.  "
                 p "Like reading pointless escapades of kings before. He He  "
                 g1 "Its this exact reason for which I teach History.  "
@@ -221,7 +227,7 @@ label start:
                 # n "Worst Choice"
 
                 # show g1 angry/upset
-                show pink hair ang01
+                show pink hair ang01 with dissolve
                 g1 "Well it's not as easy as it looks."
                 p  "Really? Well all you have to do is look good and read from the book. No ?"
                 g1  "Seems like you didnt have good teachers.  "
@@ -230,14 +236,14 @@ label start:
                 
                 $ confidence_meter -= 10
         
-        show pink hair neutral01
+        show pink hair neutral01 with dissolve
         p  "Anyways you got any hobbies ? "
         g1  "Yeah I like cooking. I also like to watch bollywood movies."
         p  "Oh what is your favourite dish to cook ?  "
         g1  "I like to cook Gujrati food."
         
         $ rigged = ""
-        if confidence_meter < 20:
+        if confidence_meter <= 45:
             $ rigged = "rigged_choice"
         else:
             $ rigged = "choice"
@@ -245,32 +251,33 @@ label start:
 
             "Oh thats pretty lame. You should try more awesome things like pasta and burger.  ":
                 
-                show pink hair annoyed01
+                show pink hair annoyed01 with dissolve
                 g1  "Well to each their own. "
                 p  "Anything not pasta is so stupid. Go for pasta only. "    
-                show pink hair annoyed02
+                show pink hair annoyed02 with dissolve
                 g1  "(visibly annoyed).Hmm sure "
 
                 $ confidence_meter -= 10
+                # encrpyt at 35
                 # > Confidence hit. Show g1 angryp             
                 
             "Wow thats actually interesting. I would love to know more.":
                 
-                show pink hair smile01
+                show pink hair smile01 with dissolve
                 g1  "Oh sure (visibly excited). Its very different to what you would find elsewhere.  "
                 p  "Really how ?  "
                 g1  "Well we like everything sweet. So you find a bit of sweetness in everything we eat.  "
                 p  "Wow, that is different. The only sweet ive ever had is in form of ice cream. Would love to try sometime.  "
                 g1  "Sure. Next time we meet,ill try to get something for you."
 
-                $ confidence_meter += 5
+                $ confidence_meter += 4
 
                 # > Show Dhwani excited. Confidence becomes little better
 
 
             "You mean dhokla and thepla. Yeah sweet just like you  ":
 
-                show pink hair smile03
+                show pink hair smile03 with dissolve
                 g1  "Well you are not wrong about the food.   "
                 p  "I actually like Gujrati food. I had some Gujarati friends in college.    "
                 g1  "Wow can you speak gujrati then?.  "
@@ -280,7 +287,7 @@ label start:
 
                 #> Dhwani all red. Confidence skyrockets. Can show bit of shivering
 
-        show pink hair smile01
+        show pink hair smile01 with dissolve
         g1  "Oh Wow , is that people playing air hockey, come on let's go and play too."
 
         ## Flash_Back
@@ -303,7 +310,7 @@ label start:
         menu:
             
             "Yes":
-                show pink hair smile01
+                show pink hair smile01 with dissolve
                 p "Yeah come on let's play. (in a shaky voice)."
                 # scene - changes to 
                 scene bary with fade
@@ -312,36 +319,36 @@ label start:
                 $ played_pong_minigame = True
                 
             "No":
-                show pink hair annoyed01
+                show pink hair annoyed01 with dissolve
                 g1  "Come on don't be a spoilsport."
                 p   "No I don't want to play. I don't like it at all."
-                show pink hair annoyed02
+                show pink hair annoyed02 with dissolve
                 $ confidence_meter -= 10
 
         # n "The End"
         scene pub2 with fade
-        show pink hair neutral01
+        show pink hair neutral01 with dissolve
         p  "Anyways what do you like to do on a lazy afternoon?  "
         g1 "I like to drink coffee and read a book.  "
 
         menu:
 
             "Me too. I love to read as well.":
-                show pink hair smile01
+                show pink hair smile01 with dissolve
                 g1  "Wow what do you read.    "
                 p  "Well I like to read biographies. My favourite was the one on Steve Jobs by Walter Issacson.  "
                 g1  "Oh i like to read on the Mughal Period.  "
                 p  "Guess we are alike on this one."
-                show pink hair smile03
+                show pink hair smile03 with dissolve
                 $ confidence_meter += 10
                 # > > Confidence boost. Show Dhwani blushing. 
 
             "Hmm. Chetan Bhagat am I right ?":
                 
-                show pink hair annoyed01
+                show pink hair annoyed01 with dissolve
                 g1  "Well I dont like his novels.  "
                 p   " Wow, you must be mad then  "
-                show pink hair ang01
+                show pink hair ang01 with dissolve
                 g1  "Oh really."
                 $ confidence_meter -= 10
 
@@ -375,19 +382,19 @@ label start:
 
         
 
-        show ros_defa1
+        show ros_defa1 with dissolve
         p  "Ummm  "
         g2  "So hotshot XYZ, you must be smart  "
         p  "(nervous laughter) Uhh. what can i say. he he  "
         g2  "Well you could tell start by telling me where you did your graduation from?    "
         p  "Uh Uh umm"
-        show ros_akuwaraia1
+        show ros_akuwaraia1 with dissolve
         g2  "Man relax. I am not gonna sue you.    "
         p  "Huh? Oh haha. I am actually from IIT-D.."
         g2  "Delhi. Not too bad. Im impressed.    "
         p  "No actually. Its Dharwad. he he "
         hide ros_akuwaraia1
-        show ros_defa1
+        show ros_defa1 with dissolve
         g2  "Oh I am sorry. Well i hope they atleast have chairs xD. "
         p  "Uhmm uhh  "
         p  "So......  "
@@ -396,7 +403,7 @@ label start:
         label convo_start:
         if really_bad_choice == True:
             scene pub2 red
-            show ros_ikaria2   
+            show ros_ikaria2 with dissolve
             g2  "Yeah its not easy. Really stressful. "
 
         menu:
@@ -407,7 +414,7 @@ label start:
                     jump convo_start
 
                 hide ros_defa1
-                show ros_waraia1
+                show ros_waraia1 with dissolve
                 g2  "Well not sure about smart. But I do love wearing those dresses."
                 p  "He He. Btw have you finished the show?"
                 g2  "Damn right xD. Yeah completed in a weekend. "
@@ -418,7 +425,7 @@ label start:
 
             "Yeah, keep the guys happy. Tough indeed.He he":
                 hide ros_defa1
-                show ros_ikaria4
+                show ros_ikaria4 with dissolve
                
                 if really_bad_choice == False:
                     g2  "You do know right what you just said,Right?.  "
@@ -437,7 +444,7 @@ label start:
                 
                 if really_bad_choice == True:
                     scene pub2 red
-                    show ros_ikaria2g
+                    show ros_ikaria2g with dissolve
                     g2 "Wow, what sort of monster parents grew up such a child"
                     call loss_ending(girl = g2)
                     jump the_end
@@ -451,7 +458,7 @@ label start:
                 
                 
                 hide ros_defa1
-                show ros_ikaria3
+                show ros_ikaria3 with dissolve
                 g2  "Excuse me. I have done law from NLU.Ever heard of it?Im a junior associate at DEF law firm  "
                 p  "Oh I just thought..  "
                 g2  "And even if I was a secretrary. Even then I deserve to be respected no?  "
@@ -459,7 +466,7 @@ label start:
 
                 $ confidence_meter -= 10
         # scene pub2
-        show ros_defa1
+        show ros_defa1 with dissolve
         p  "Anyways you got any hobbies? "
         g2  "Yeah I like travelling. I recently travelled to the States.  "
         p  "uhh which states?  "
@@ -471,7 +478,7 @@ label start:
 
             "Uhmm. Nothing much really. Watching netflix I guess?":
                 hide ros_defa1
-                show ros_ikaria3
+                show ros_ikaria3 with dissolve
                 g2  "Wow. Dont you get bored ?    "
                 p  "uhmm there are good shows like sacred games,etc. So keeps me busy.  "
                 g2  "(unimpressed).Hmm sure"
@@ -482,7 +489,7 @@ label start:
 
             "Well me too. Though I havent really gone beyond the shores yet.":
                 hide ros_defa1
-                show ros_waraia1
+                show ros_waraia1 with dissolve
                 g2 " Well I havent roamed around India much. Whats your favorite place.    "
                 p " I like mountains. I find Manali to be quite nice.    "
                 g2 " Yeah but still its so lame unlike the Alps.  "
@@ -497,7 +504,7 @@ label start:
             " Uhmm. Does playing cricket count? He he":
                 
                 hide ros_defa1
-                show ros_ikaria3
+                show ros_ikaria3 with dissolve
                 g2 "(unimpressed).Typical Indian hobby.   "
                 p  "Well its fun. Did you follow the world cup?    "
                 g2  "Yeah Yeah a bit. Everyone was following so i saw a bit.  "
@@ -506,7 +513,7 @@ label start:
 
                 $ confidence_meter += 5
         
-        show ros_defa1
+        show ros_defa1 with dissolve
         p  "Hey what's that popping out of your coat pocket?"
         g2  "Ah this thing , it's a sliding puzzle. I use it as a stress-buster. Do you wanna try it ?"  
         
@@ -521,14 +528,14 @@ label start:
         n  "Hmm , no p you are stronger than this , don't live in the past , don't it will only bring you pain. Think of positive things. "
 
         scene pub2 with fade
-        show ros_defa1
+        show ros_defa1 with dissolve
         g2 "Hello !! , Earth to [name] , Earth to [name]. Do you wanna try it."
 
         menu:
             
             "Yes":
                 hide ros_defa1
-                show ros_waraia1
+                show ros_waraia1 with dissolve
                 p "Yeah sure I will give it a try. (in a shaky voice)."
                 # scene - changes to karoake
                 scene bar_indoor with fade
@@ -538,14 +545,14 @@ label start:
                 
             "No":
                 hide ros_defa1
-                show ros_komarua1
+                show ros_komarua1 with dissolve
                 g2  "Come on don't be a spoilsport."
                 p   "No I don't want to do it. I don't like it at all."
 
                 $ confidence_meter -= 10
         scene pub2 with fade
 
-        show ros_defa1
+        show ros_defa1 with dissolve
         p  "So whats your favorite movie?"
         g2  "Oh I love rom coms and sci-fi. So my favurite movies are Princess Diaries and Interstellar.  "
         p  "Nice. Yeah even like I to watch movies.  "
@@ -559,7 +566,7 @@ label start:
                 p  "Actually thats not entirely true. It was initially a plan of Satyajit Ray in collaboration with some American production house. Then those guys actually leaked the script to Steven Spielberg.  ?"
                 p  "Even Rakesh Roshan mentioned it in his press conference.  ?"
                 hide ros_defa1
-                show ros_akuwaraia1
+                show ros_akuwaraia1 with dissolve
                 g2  "I have to say, i didnt see that one coming.    ?"
                 p  "Actually its a shame as to how often we Indians dont get credit. Radio, Airplanes, the list goes on.  ?"
                 g2  "(embarrased) I feel embarassed to not know about this.?"
@@ -583,7 +590,7 @@ label start:
             "I liked Hera Pheri.":
 
                 hide ros_defa1
-                show ros_ikaria3
+                show ros_ikaria3 with dissolve
                 g2 "Isnt it a bit too forced and misogynist.  "
                 p  "Well, the idea of a movie is to entertain and its a good light hearted one watch.  "
                 g2  "Still, I think there shouldnt be any room for regressive thoughts.    "
@@ -604,14 +611,14 @@ label start:
         $ played_karoake_minigame = False
 
         scene pub2 with dissolve
-        show dark hair neu01
+        show dark hair neu01 with dissolve
 
         p  "Ummm  "
         g3  "Sooooo  "
         p  "(nervous laughter) Uhh. sooo.... uhh  "
         g3  "Well are you gonna talk or stay like that ?    "
         p  "Uh Uh umm"
-        show dark hair ann01
+        show dark hair ann01 with dissolve
         g3  "Gosh are you gonna stay dumb like that?    "
         p  "Oh sorry. ummm"
         
@@ -619,7 +626,7 @@ label start:
         p  " umm. Yeah yeah but I dont use it too often.  "
         g3  "Oh well then follow me. Or you can even not, I mean I have 30k followers.   "
         p  "But everyone counts right?    "
-        show dark hair neu03
+        show dark hair neu03 with dissolve
         g3  "(embarrased) Oh yeah totally. Please follow me.   "
         p  "So how much time on average do you spend there?  "
         g3  "Well, mostly my manager manages my account. But i like to read comments and give fans what they want."
@@ -632,7 +639,7 @@ label start:
                 p  "True that. I guess all celebrities must feel that way.   "
                 g3  "Thats right. So why dont you do me a favor and follow me on Tiktok. My handle is cutiepie.   "
                 p  "umm uhh.    "
-                show dark hair ann01
+                show dark hair ann01 with dissolve
                 g3  "Gosh you arent on TikTok are you?  "
                 p  " sorry im not. umm uhh, I could follow you on Linkedin.  "
                 g3  "You are such a nerd.              "
@@ -647,11 +654,11 @@ label start:
                 
                 g3  "I think I know whats important.    "
                 p  "Sorry. I just meant since you are an actress, that should be your strength,right?    "
-                show dark hair ang
+                show dark hair ang with dissolve
                 g3  "(angry)Listen, just because you are an engineer and you think you are SO SMART, you dont get to tell me what I should do or what I shouldnt.   "
                 p  "umm uhh.Sorry you are right I shouldnt.    "
                 
-                show dark hair sad01
+                show dark hair sad01 with dissolve
                 g3  "(apologetic)I am sorry, I shouldnt have shouted. "
                 g3 "Its just theres so much pressure on me at the moment.   "
                 p  " I understand. Its okay. Life is pretty hard on us sometimes isnt it?  "
@@ -660,19 +667,19 @@ label start:
                 
                 $ confidence_meter += 10
 
-                show dark hair smi01
+                show dark hair smi01 with dissolve
                 # > (Labdhi indifferent) Confidence a bit high
 
 
             "Well, that comes at cost of self respect doesnt it. He he":
 
-                show dark hair ang
+                show dark hair ang with dissolve
                 g3 "What do you know about self respect huh?  "
                 p  "Oh i didnt mean to say..  "
                 g3  "Do you even know what do I have to go through every single day? "
                 p  "Sorry. I didnt mean it that way. I didnt mean to hurt you.    "
                 
-                show dark hair sad02
+                show dark hair sad02 with dissolve
                 g3  "(upset) what i have to listen every single day  "
                 p  "Hey, listen i didnt mean to say like that. umm Im quite an idiot. Im really sorry"
                 
@@ -681,7 +688,7 @@ label start:
                 
         p  "Anyways you got any hobbies? "
 
-        show dark hair neu01
+        show dark hair neu01 with dissolve
 
         g3  "I love dancing and singing.Ever since I was a kid, I used to find every opportunity I could, to dance.  "
         p  "ohh nice.  "
@@ -697,7 +704,7 @@ label start:
                 g3  "Whats your favorite show there?     "
                 p  "Stranger Things. Its just ...  "
                 
-                show dark hair smi01
+                show dark hair smi01 with dissolve
                 
                 g3  "(impressed). so cuuuuttttteeeeeee!!!!"
                 p  "Uhm yeah, you could say that as well.  "
@@ -709,7 +716,7 @@ label start:
 
             "I did do some acting in school. I guess you could count that.":
                 
-                show dark hair smi01
+                show dark hair smi01 with dissolve
                 
                 g3  "Wow you mean like school plays.Yeah i used to be the star in them..    "
                 p  "I wasnt any great. A bit here and there.     "
@@ -730,13 +737,13 @@ label start:
                 p  "Yeah he is such a good batsman. Its a strugg....    "
                 g3  "He is so cute. I am so jealous of Anushka  "
                 p  "You just like him because he is cute?  "
-                show dark hair ann02
+                show dark hair ann02 with dissolve
                 g3  "Duh. Also his abbs. OMGGGG!!!!"
 
                 # > Khushi smiles. Confidence decreases.  
                 $ confidence_meter -= 5
         
-        show dark hair smi01
+        show dark hair smi01 with dissolve
         g3  "I love music , Come on let's go and do karoake"
 
         # scene pub2
@@ -756,8 +763,11 @@ label start:
         n  "The jeering, taunts and bullying that you had to face the entire year. That was the year when you developed the stutter."
         
         # Scene change - present
-        scene pub2 with fade
-        show dark hair smi01
+        scene pub2 with fade:
+            xpan 0
+            linear 2.0 xpan 360
+            repeat
+        show dark hair smi01 at xy
         g3 "Come on let's go for karoake ?"
         
         menu:
@@ -765,7 +775,7 @@ label start:
             "Yes":
                 
 
-                show dark hair neu03
+                show dark hair neu03 with dissolve
 
                 p "Okay sure let's go."
                 # scene - changes to karoake
@@ -778,7 +788,7 @@ label start:
 
             "No":
 
-                show dark hair ann01
+                show dark hair ann01 with dissolve
 
                 g3  "Come on don't be a spoilsport."
                 p   "No I don't want to do karoake. I don't like it at all."
@@ -788,11 +798,11 @@ label start:
         scene pub2 with fade
         p  "Anyways, umm   "
         
-        show dark hair ann01
+        show dark hair ann01 with dissolve
         g3  "What? You take hell lot of time to say things.    "
         p  "So whats your cheat day meal like?   "
         
-        show dark hair neu03
+        show dark hair neu03 with dissolve
         g3  "(surprised)Hmm Interesting. Didnt see that one coming."
         p  "So? Pizza?   "
         g3  "(embarassed) Actually its chole bhature.he he"
@@ -804,14 +814,14 @@ label start:
                 g3 "Everyone's Mom does the best cooking. I'm sorry 'used to' ?    "
                 p  "Ah yeah. Well she left me some years back. I dont even know is she is dead or alive.    "
                 p  "Sorry, dont bother yourself  "
-                show dark hair sad01
+                show dark hair sad01 with dissolve
                 g3  "Oh Im sorry. I didnt know.    "
                 g3  "To be honest, I kind of understand how you feel.  "
                 p  "Your mom also left you ?    "
                 g3  "(embarrased) Not exactly. But i spend all my time with my cook. You could even say she raised me.    "
                 p  "Guess we both miss Chole Bhature too much eh?  "
                 
-                show dark hair smi01
+                show dark hair smi01 with dissolve
                 g3  "(Laughing) Yeah, now you made me hungry            "
                 
                 $ confidence_meter += 10
@@ -823,7 +833,7 @@ label start:
                 g3  "What?     "
                 p  "I didnt expect you to say that thats all?     "
                 
-                show dark hair ang
+                show dark hair ang with dissolve
                 g3  "(shouting)I am a PUNJABI GIRL at hearttttt.   "
                 p  "uhh yeah sure."
                 n  "Thats cringy"
@@ -834,7 +844,7 @@ label start:
 
             "And Rajma chawal? he he":
 
-                show dark hair smi01
+                show dark hair smi01 with dissolve
                 g3 "Ya that toooo.  "
                 p  "So how often do you get to eat ?  "
                 g3  "Once every 2-3 months.    "
@@ -936,3 +946,18 @@ transform mz1:
 
 transform mz2:
     place(x=0.65,z=1.0)
+
+transform xy:
+    parallel:
+        xalign 0.0 yalign 1.0
+        pause 1.0
+        xalign 1.0
+        pause 1.0
+    parallel:
+        # xalign 0.0 yalign 1.0
+        # alpha 1.0
+        linear 1.0 alpha 0.0
+        # pause .5
+        linear 1.0 alpha 1.0
+        # pause .5
+    repeat
