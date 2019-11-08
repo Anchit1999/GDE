@@ -768,23 +768,6 @@ label start:
         p  "(low confidence) umm okay."
         return
 
-     
-     
-
-
-    
-
-
-
-   
-
-
-
-
-
-
-
-    
     label the_end:
     n "The End"
 
