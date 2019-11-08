@@ -12,7 +12,10 @@ init python:
     gui.init(1280, 720)
 
 
-
+define -2 gui.text_xalign = 0.0
+define -2 gui.text_width = 744
+define -2 gui.text_xpos = 268
+define -2 gui.text_ypos = 62
 ################################################################################
 ## GUI Configuration Variables
 ################################################################################

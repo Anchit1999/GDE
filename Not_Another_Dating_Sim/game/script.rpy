@@ -41,9 +41,12 @@ label start:
 
 
     show male smi01 with dissolve
-
+    # $ style.say_dialogue = style.edited
+    # $ gtext = shuffletext("fucking hell bitch quitty")
+    
     p "And here we are celebrating my friend Rohit's work anniversary"    
-
+    # p "Hello world[gtext]"
+    # $ style.say_dialogue = style.normal
     r "Hey man why so serious? Its been such a hectic couple of months and I just want to relax today."
 
     p "(nervously) Hey I am really happy for you,its just I dont like being with so many people." with vpunch
