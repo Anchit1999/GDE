@@ -20,14 +20,14 @@ label start:
 
     $ confidence_meter = 25
 
-    n "Hi, welcome to our humble game. Before you begin please tell us your [name]."
+    n "Hi, welcome to our humble game. Before you begin please tell us your name."
 
     python:
         name = renpy.input(_("What's your name?"))
 
         name = name.strip() or __("Lord Voldemort")
 
-    n "Hi %(name)s great thanks for joining us on this journey name"
+    n "Hi [name], great thanks for joining us on this journey "
     
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
@@ -71,7 +71,7 @@ label start:
 
     r "Arre why are you so concerned?" 
   
-    p "(stuttering) I have avoided all humanity uptill now and you want me to talk to 3 beautifull girls."
+    p "(stuttering) I have avoided all humanity uptill now and you want me to talk to 3 beautiful girls."
     # with Fade(5.0) zorder 10
     show blackflash zorder 50
     # > p shaking. Depict by bluring the screen or something
@@ -105,7 +105,7 @@ label start:
     p  "Owww !"
 
     show male smi02 at mz1
-    r  "Welcome back. Guys this is my friend [name]. We have been together since childhood. He is an engineer at XYZ company."    
+    r  "Welcome back. Guys this is my friend [name]. We have been together since childhood. He is an engineer at racebook."    
     show male smi02 at mz2
     p  "(meekly) Hi !!"
 
@@ -140,7 +140,7 @@ label start:
     show male smi02 at mz1
     r "And that's dinner. I am really hungry. Anyone up for some starters."
     
-    r "(pulling p closer), this is your chance."
+    r "(pulling [name] closer), this is your chance."
 
     show male smi02 at mz2
     p "Seriously man, i'm sweating buckets here"
@@ -167,6 +167,7 @@ label start:
     label g1_story:
 
         $ played_pong_minigame = False
+        
         # show g1 neutral
         scene pub2 with dissolve
         show pink hair neutral01
@@ -367,10 +368,14 @@ label start:
     label g2_story:
 
         $ played_puzzle_minigame = False
+        $ really_bad_choice = False
         
         scene pub2 with dissolve
-        show ros_defa1
+        
 
+        
+
+        show ros_defa1
         p  "Ummm  "
         g2  "So hotshot XYZ, you must be smart  "
         p  "(nervous laughter) Uhh. what can i say. he he  "
@@ -387,11 +392,20 @@ label start:
         p  "Uhmm uhh  "
         p  "So......  "
         p  "So corporate law and all? Must be taxing.  "
-        g2  "Yeah its not easy. Really stressful. "
+        
+        label convo_start:
+        if really_bad_choice == True:
+            scene pub2 red
+            show ros_ikaria2   
+            g2  "Yeah its not easy. Really stressful. "
 
         menu:
 
             "So is it like Suits. Making mergers and looking smart.":
+                if really_bad_choice == True:
+                    n "What's happening !!, why did I say it , why is she repeating the same thing again and again."
+                    jump convo_start
+
                 hide ros_defa1
                 show ros_waraia1
                 g2  "Well not sure about smart. But I do love wearing those dresses."
@@ -404,18 +418,38 @@ label start:
 
             "Yeah, keep the guys happy. Tough indeed.He he":
                 hide ros_defa1
-                show ros_komarua1
-                g2  "You do know right what you just said,Right?.  "
-                p  "Uhm did I say something bad?  "
-                g2  "Its people like you who make it so hard for girls to survive. Its a real shame.  "
-                p  "Im so sorry. I didnt mean to say that."
-                
-                $ confidence_meter -= 5
+                show ros_ikaria4
+               
+                if really_bad_choice == False:
+                    g2  "You do know right what you just said,Right?.  "
+                    p  "Uhm did I say something bad?  "
+                    g2  "Its people like you who make it so hard for girls to survive. Its a real shame.  "
+                    p  "Im so sorry. I didnt mean to say that."
+                    
+                    $ confidence_meter -= 25
 
+                    g2 "Oh really you didn't mean say that you misogynist b******."
+                    g2 "I DARE YOU TO SAY IT AGAIN."
+
+                if really_bad_choice == False:
+                    $ really_bad_choice = True
+                    jump convo_start                 
+                
+                if really_bad_choice == True:
+                    scene pub2 red
+                    show ros_ikaria2g
+                    g2 "Wow, what sort of monster parents grew up such a child"
+                    call loss_ending(girl = g2)
+                    jump the_end
                 # > Show Dhwani excited. Confidence becomes little better
 
 
             "Yeah being a secretrary must be tough.":
+                if really_bad_choice == True:
+                    n "What's happening !!, why did I say it , why is she repeating the same thing again and again."
+                    jump convo_start
+                
+                
                 hide ros_defa1
                 show ros_ikaria3
                 g2  "Excuse me. I have done law from NLU.Ever heard of it?Im a junior associate at DEF law firm  "
@@ -488,7 +522,7 @@ label start:
 
         scene pub2 with fade
         show ros_defa1
-        g2 "Hello !! , Earth to p , Earth to p. Do you wanna try it."
+        g2 "Hello !! , Earth to [name] , Earth to [name]. Do you wanna try it."
 
         menu:
             
@@ -505,7 +539,7 @@ label start:
             "No":
                 hide ros_defa1
                 show ros_komarua1
-                g1  "Come on don't be a spoilsport."
+                g2  "Come on don't be a spoilsport."
                 p   "No I don't want to do it. I don't like it at all."
 
                 $ confidence_meter -= 10
