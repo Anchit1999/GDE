@@ -8,9 +8,9 @@ define p = Character("[name]")
 define r = Character("Rohit")
 define n = Character("Narrator")
 
-define g1 = Character("g1")
-define g2 = Character("g2")
-define g3 = Character("g3")
+define g1 = Character("g1") # pink hair
+define g2 = Character("g2") # gunny girl
+define g3 = Character("g3") # dark hair
 
 
 # The game starts here.
@@ -69,21 +69,15 @@ label start:
 
     p "What? No No. What will i do, i dont even know them."
 
-    r " Arre why are you so concerned?" 
+    r "Arre why are you so concerned?" 
   
-    p " (stuttering) I have avoided all humanity uptill now and you want me to talk to 3 beautifull girls."
+    p "(stuttering) I have avoided all humanity uptill now and you want me to talk to 3 beautifull girls."
     # with Fade(5.0) zorder 10
     show blackflash zorder 50
     # > p shaking. Depict by bluring the screen or something
 
     n "So Rohit pulled me and I was totally uncomfortable"
     hide male smi02
-    # show g1 neutral
-    # show pink hair smile01 at left
-    # show g2 neutral
-    # show ros_akuwaraia1
-    # show g3 neutral
-    # show dark hair smi01 at right
     
     show pink hair smile01
     g1 "Hey Hey Hey!!!! Look who showed up"
@@ -115,23 +109,23 @@ label start:
     show male smi02 at mz2
     p  "(meekly) Hi !!"
 
-    show pink hair smile01 at phz1
+    show ros_akuwaraia1 at rosz1
     g2 "Oh my God, Relax man. We arent going to eat you. By the way I'm g2. I'm working to protect people like you.  "
-    show pink hair smile01 at phz2
+    show ros_akuwaraia1 at rosz2
 
     show male smi02 at mz1
     r  "(confused) Sorry ?"
     show male smi02 at mz2
 
-    show pink hair smile01 at phz1
+    show ros_akuwaraia1 at rosz1
     g2 "I mean I'm a corporate lawyer. Hehe "
-    show pink hair smile01 at phz2
+    show ros_akuwaraia1 at rosz2
 
     n  "That was a really poor joke."
 
-    show ros_akuwaraia1 at rosz1
+    show pink hair smile01 at phz1
     g1 "Well I'm g1. I am a school teacher"
-    show ros_akuwaraia1 at rosz2
+    show pink hair smile01 at phz2
 
     show dark hair smi01 at dhz1
     g3 "And you must already know me. I am the famous actress ...."
@@ -153,6 +147,7 @@ label start:
     show male smi02 at mz1
     r "Live a little buddy."
     show male smi02 at mz2
+    
     label selectgirl:
 
         n " Which girl do you wanna talk to more ?"
@@ -173,13 +168,15 @@ label start:
 
         $ played_pong_minigame = False
         # show g1 neutral
-
+        scene pub2 with dissolve
+        show pink hair neutral01
+        
         n "g2 , g3 and Rohit leave for starters"
-
 
         p  "Ummm  "
         g1  "Uhhh  "
         p  "(nervous laughter) Uhh  "
+        show pink hair neutral02
         g1  "Sorry. I must be boring you. uhh  "
         p  "No no not at all. I'm just not used to this.  "
         g1  "Well to be honest me too. He he  "
@@ -194,6 +191,7 @@ label start:
                 # n "Good Choice"
 
                 # show g1 happy
+                show pink hair smile01
                 g1 "Yeah not many people realize how hard it is.  "
                 p  "But I am sure it's rewarding.   "
                 g1 "Yeah sure is. Always feel happy to see a successful student.  "
@@ -208,6 +206,7 @@ label start:
                 # n "Bad Choice"
                 
                 # show g1 annoyed
+                show pink hair annoyed01
                 g1 "Well those who forget history are doomed to repeat it.  "
                 p "Like reading pointless escapades of kings before. He He  "
                 g1 "Its this exact reason for which I teach History.  "
@@ -221,6 +220,7 @@ label start:
                 # n "Worst Choice"
 
                 # show g1 angry/upset
+                show pink hair ang01
                 g1 "Well it's not as easy as it looks."
                 p  "Really? Well all you have to do is look good and read from the book. No ?"
                 g1  "Seems like you didnt have good teachers.  "
@@ -229,6 +229,7 @@ label start:
                 
                 $ confidence_meter -= 10
         
+        show pink hair neutral01
         p  "Anyways you got any hobbies ? "
         g1  "Yeah I like cooking. I also like to watch bollywood movies."
         p  "Oh what is your favourite dish to cook ?  "
@@ -238,8 +239,10 @@ label start:
 
             "Oh thats pretty lame. You should try more awesome things like pasta and burger.  ":
                 
+                show pink hair annoyed01
                 g1  "Well to each their own. "
                 p  "Anything not pasta is so stupid. Go for pasta only. "    
+                show pink hair annoyed02
                 g1  "(visibly annoyed).Hmm sure "
 
                 $ confidence_meter -= 10
@@ -247,6 +250,7 @@ label start:
                 
             "Wow thats actually interesting. I would love to know more.":
                 
+                show pink hair smile01
                 g1  "Oh sure (visibly excited). Its very different to what you would find elsewhere.  "
                 p  "Really how ?  "
                 g1  "Well we like everything sweet. So you find a bit of sweetness in everything we eat.  "
@@ -260,6 +264,7 @@ label start:
 
             "You mean dhokla and thepla. Yeah sweet just like you  ":
 
+                show pink hair smile03
                 g1  "(gets horny) Well you are not wrong about the food.   "
                 p  "I actually like Gujrati food. I had some Gujarati friends in college.    "
                 g1  "Wow can you speak gujrati then?.  "
@@ -269,10 +274,11 @@ label start:
 
                 #> Dhwani all red. Confidence skyrockets. Can show bit of shivering
 
+        show pink hair smile01
         g1  "Oh Wow , is that people playing air hockey, come on let's go and play too."
 
         ## Flash_Back
-
+        scene pub2 with fade
         # Scene change - arcade game.
 
         n  "Your thoughts turn back to 26.05.2008 the last truly happy day of your life. Your parents had taken you out to a gaming arcade for your 11th birthday "
@@ -286,13 +292,13 @@ label start:
         n  "You peeked and saw your dad throwing a vase at your mom ...... nothing was ever the same again."
         
         # Scene change - present
-        
+        scene pub2 with fade
         n "Do you still want to play air hockey ?"
         
         menu:
             
             "Yes":
-
+                show pink hair smile01
                 p "Yeah come on let's play. (in a shaky voice)."
                 # scene - changes to karoake
                 
@@ -301,38 +307,39 @@ label start:
                 $ played_pong_minigame = True
                 
             "No":
-
+                show pink hair annoyed01
                 g1  "Come on don't be a spoilsport."
                 p   "No I don't want to play. I don't like it at all."
-
+                show pink hair annoyed02
                 $ confidence_meter -= 10
 
         # n "The End"
-
+        show pink hair neutral01
         p  "Anyways what do you like to do on a lazy afternoon?  "
         g1 "I like to drink coffee and read a book.  "
-
 
         menu:
 
             "Me too. I love to read as well.":
-                
+                show pink hair smile01
                 g1  "Wow what do you read.    "
-                p  "Well I like to read biographies .My favourite was the one on Steve Jobs by Walter Issacson.  "
+                p  "Well I like to read biographies. My favourite was the one on Steve Jobs by Walter Issacson.  "
                 g1  "Oh i like to read on the Mughal Period.  "
                 p  "Guess we are alike on this one."
-
+                show pink hair smile03
                 $ confidence_meter += 10
                 # > > Confidence boost. Show Dhwani blushing. 
 
             "Hmm. Chetan Bhagat am I right ?":
-                    
+                
+                show pink hair annoyed01
                 g1  "Well I dont like his novels.  "
                 p   " Wow, you must be mad then  "
+                show pink hair ang01
                 g1  "Oh really."
                 $ confidence_meter -= 10
 
-                # > Show Dhwani excited. Confidence becomes little better
+                # > Show Dhwani angry.
 
 
             "That's so borrriiinnnnggg.":
@@ -343,6 +350,7 @@ label start:
                 p  "Guess we agree to disagree.  "
 
             #Dhwani indifferent.Confidence level same.
+        
         if confidence_meter >= 35:
             call win_ending pass(girl = g1)
             jump the_end
@@ -354,16 +362,21 @@ label start:
     label g2_story:
 
         $ played_puzzle_minigame = False
+        
+        scene pub2 with dissolve
+        show ros_defa1
 
         p  "Ummm  "
         g2  "So hotshot XYZ, you must be smart  "
         p  "(nervous laughter) Uhh. what can i say. he he  "
         g2  "Well you could tell start by telling me where you did your graduation from?    "
         p  "Uh Uh umm"
+        show ros_akuwaraia1
         g2  "Man relax. I am not gonna sue you.    "
         p  "Huh? Oh haha. I am actually from IIT-D.."
         g2  "Delhi. Not too bad. Im impressed.    "
         p  "No actually. Its Dharwad. he he "
+        show ros_defa1
         g2  "Oh I am sorry. Well i hope they atleast have chairs xD. "
         p  "Uhmm uhh  "
         p  "So......  "
