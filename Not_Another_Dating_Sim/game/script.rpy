@@ -284,7 +284,7 @@ label start:
                 g1  "(visibly annoyed).Hmm sure "
 
                 $ confidence_meter -= 10
-                # encrpyt at 35
+                # encrypt at 35
                 # > Confidence hit. Show g1 angryp             
                 
             "Wow that's actually interesting. I would love to know more.":
@@ -366,25 +366,25 @@ label start:
         scene pub2 with fade
         show pink hair neutral01 with dissolve
         
-        $ diag = randomshuffle("Anyways what do you like to do on a lazy afternoon?",encrpyt=encrpytd)
+        $ diag = randomshuffle("Anyways what do you like to do on a lazy afternoon?",encrypt=encrpytd)
         p  "[diag]"
-        $ diag = randomshuffle("I like to drink coffee and read a book.  ",encrpyt=encrpytd)
+        $ diag = randomshuffle("I like to drink coffee and read a book.  ",encrypt=encrpytd)
         g1 "[diag]"
 
-        $ opt1 = randomshuffle("Me too. I love to read as well.",0.75,encrpyt=encrpytd)
-        $ opt2 = randomshuffle("Hmm. Chetan Bhagat am I right ?",0.85,encrpyt=encrpytd)
-        $ opt3 = randomshuffle("That's so borrriiinnnnggg.",encrpyt=encrpytd)
+        $ opt1 = randomshuffle("Me too. I love to read as well.",0.75,encrypt=encrpytd)
+        $ opt2 = randomshuffle("Hmm. Chetan Bhagat am I right ?",0.85,encrypt=encrpytd)
+        $ opt3 = randomshuffle("That's so borrriiinnnnggg.",encrypt=encrpytd)
         $ style.say_dialogue = style.edited
         menu:
             "[opt1]":
                 show pink hair smile01 with dissolve
-                $ diag = randomshuffle("Wow, what do you read ?",0.8,encrpyt=encrpytd)
+                $ diag = randomshuffle("Wow, what do you read ?",0.8,encrypt=encrpytd)
                 g1 "[diag]"
-                $ diag = randomshuffle("Well I like to read biographies. My favourite was the one on Steve Jobs by Walter Issacson.",0.8,encrpyt=encrpytd)
+                $ diag = randomshuffle("Well I like to read biographies. My favourite was the one on Steve Jobs by Walter Issacson.",0.8,encrypt=encrpytd)
                 p  "[diag]"
-                $ diag = randomshuffle("Oh I like to read about the Mughal Period.",0.8,encrpyt=encrpytd)
+                $ diag = randomshuffle("Oh I like to read about the Mughal Period.",0.8,encrypt=encrpytd)
                 g1  "[diag]"
-                $ diag = randomshuffle("Guess we are alike on this one.",0.8,encrpyt=encrpytd)
+                $ diag = randomshuffle("Guess we are alike on this one.",0.8,encrypt=encrpytd)
                 p  "[diag]"
                 show pink hair smile03 with dissolve
                 $ confidence_meter += 10
@@ -393,12 +393,12 @@ label start:
             "[opt2]":
                 
                 show pink hair annoyed01 with dissolve
-                $ diag = randomshuffle("Well I don't like his novels.",0.8,encrpyt=encrpytd)
+                $ diag = randomshuffle("Well I don't like his novels.",0.8,encrypt=encrpytd)
                 g1  "[diag]"
-                $ diag = randomshuffle("Wow, you have a really poor choice in authors.",0.8,encrpyt=encrpytd)
+                $ diag = randomshuffle("Wow, you have a really poor choice in authors.",0.8,encrypt=encrpytd)
                 p   "[diag]"
                 show pink hair ang01 with dissolve
-                $ diag = randomshuffle("Oh really.",0.8,encrpyt=encrpytd)
+                $ diag = randomshuffle("Oh really.",0.8,encrypt=encrpytd)
                 g1 "[diag]"
                 $ confidence_meter -= 10
 
@@ -407,20 +407,20 @@ label start:
 
             "[opt3]":
 
-                $ diag = randomshuffle("Ok then what do you like?  ",0.8,encrpyt=encrpytd)
+                $ diag = randomshuffle("Ok then what do you like?  ",0.8,encrypt=encrpytd)
                 g1 "[diag]"
-                $ diag = randomshuffle("Watching Netflix  ",0.8,encrpyt=encrpytd)
+                $ diag = randomshuffle("Watching Netflix  ",0.8,encrypt=encrpytd)
                 p  "[diag]"
-                $ diag = randomshuffle("Well i find it boring.  ",0.8,encrpyt=encrpytd)
+                $ diag = randomshuffle("Well i find it boring.  ",0.8,encrypt=encrpytd)
                 g1 "[diag]"
-                $ diag = randomshuffle("Guess we agree to disagree.  ",0.8,encrpyt=encrpytd)
+                $ diag = randomshuffle("Guess we agree to disagree.  ",0.8,encrypt=encrpytd)
                 p  "[diag]"
 
             #Dhwani indifferent.Confidence level same.
         stop music fadeout 1.0
         
         $ style.say_dialogue = style.normal
-        if confidence_meter >= 35:
+        if confidence_meter >= 35 and played_pong_minigame == True:
             call win_ending pass(girl = g1)
             jump the_end_happy
         else:
@@ -656,8 +656,9 @@ label start:
                 p   "No I don't want to do it. I don't like it at all."
 
                 $ confidence_meter -= 20
+        
         scene pub2 with fade
-        if confidence_meter > 40:
+        if confidence_meter >= 40:
             $ encrypt_g2 = False
         if confidence_meter < 30:
             $ weird = True
@@ -732,7 +733,7 @@ label start:
         stop music fadeout 1.0
         
         $ style.say_dialogue = style.normal
-        if confidence_meter >= 35:
+        if confidence_meter >= 35 and played_puzzle_minigame == True:
             call win_ending pass(girl = g2)
             jump the_end_happy
         else:
@@ -1000,7 +1001,7 @@ label start:
     
         stop music fadeout 1.0
     
-        if confidence_meter >= 35:
+        if confidence_meter >= 35 and played_karoake_minigame == True:
             call win_ending pass(girl = g3)
             jump the_end_happy
         else:
