@@ -270,7 +270,7 @@ label start:
                 g1  "(visibly annoyed).Hmm sure "
 
                 $ confidence_meter -= 10
-                # encrpyt at 35
+                # encrypt at 35
                 # > Confidence hit. Show g1 angryp             
                 
             "Wow that's actually interesting. I would love to know more.":
@@ -299,9 +299,9 @@ label start:
 
                 #> Dhwani all red. Confidence skyrockets. Can show bit of shivering
 
-        $ encrpytd = False
+        $ encryptd = False
         if confidence_meter <= 35:
-            $ encrpytd = True
+            $ encryptd = True
         show pink hair smile01 with dissolve
         
         g1  "Oh Wow , is that people playing air hockey, come on let's go and play too."
@@ -345,25 +345,25 @@ label start:
         scene pub2 with fade
         show pink hair neutral01 with dissolve
         
-        $ diag = randomshuffle("Anyways what do you like to do on a lazy afternoon?",encrpyt=encrpytd)
+        $ diag = randomshuffle("Anyways what do you like to do on a lazy afternoon?",encrypt=encryptd)
         p  "[diag]"
-        $ diag = randomshuffle("I like to drink coffee and read a book.  ",encrpyt=encrpytd)
+        $ diag = randomshuffle("I like to drink coffee and read a book.  ",encrypt=encryptd)
         g1 "[diag]"
 
-        $ opt1 = randomshuffle("Me too. I love to read as well.",0.75,encrpyt=encrpytd)
-        $ opt2 = randomshuffle("Hmm. Chetan Bhagat am I right ?",0.85,encrpyt=encrpytd)
-        $ opt3 = randomshuffle("That's so borrriiinnnnggg.",encrpyt=encrpytd)
+        $ opt1 = randomshuffle("Me too. I love to read as well.",0.75,encrypt=encryptd)
+        $ opt2 = randomshuffle("Hmm. Chetan Bhagat am I right ?",0.85,encrypt=encryptd)
+        $ opt3 = randomshuffle("That's so borrriiinnnnggg.",encrypt=encryptd)
         $ style.say_dialogue = style.edited
         menu:
             "[opt1]":
                 show pink hair smile01 with dissolve
-                $ diag = randomshuffle("Wow, what do you read ?",0.8,encrpyt=encrpytd)
+                $ diag = randomshuffle("Wow, what do you read ?",0.8,encrypt=encryptd)
                 g1 "[diag]"
-                $ diag = randomshuffle("Well I like to read biographies. My favourite was the one on Steve Jobs by Walter Issacson.",0.8,encrpyt=encrpytd)
+                $ diag = randomshuffle("Well I like to read biographies. My favourite was the one on Steve Jobs by Walter Issacson.",0.8,encrypt=encryptd)
                 p  "[diag]"
-                $ diag = randomshuffle("Oh I like to read about the Mughal Period.",0.8,encrpyt=encrpytd)
+                $ diag = randomshuffle("Oh I like to read about the Mughal Period.",0.8,encrypt=encryptd)
                 g1  "[diag]"
-                $ diag = randomshuffle("Guess we are alike on this one.",0.8,encrpyt=encrpytd)
+                $ diag = randomshuffle("Guess we are alike on this one.",0.8,encrypt=encryptd)
                 p  "[diag]"
                 show pink hair smile03 with dissolve
                 $ confidence_meter += 10
@@ -372,12 +372,12 @@ label start:
             "[opt2]":
                 
                 show pink hair annoyed01 with dissolve
-                $ diag = randomshuffle("Well I don't like his novels.",0.8,encrpyt=encrpytd)
+                $ diag = randomshuffle("Well I don't like his novels.",0.8,encrypt=encryptd)
                 g1  "[diag]"
-                $ diag = randomshuffle("Wow, you have a really poor choice in authors.",0.8,encrpyt=encrpytd)
+                $ diag = randomshuffle("Wow, you have a really poor choice in authors.",0.8,encrypt=encryptd)
                 p   "[diag]"
                 show pink hair ang01 with dissolve
-                $ diag = randomshuffle("Oh really.",0.8,encrpyt=encrpytd)
+                $ diag = randomshuffle("Oh really.",0.8,encrypt=encryptd)
                 g1 "[diag]"
                 $ confidence_meter -= 10
 
@@ -386,13 +386,13 @@ label start:
 
             "[opt3]":
 
-                $ diag = randomshuffle("Ok then what do you like?  ",0.8,encrpyt=encrpytd)
+                $ diag = randomshuffle("Ok then what do you like?  ",0.8,encrypt=encryptd)
                 g1 "[diag]"
-                $ diag = randomshuffle("Watching Netflix  ",0.8,encrpyt=encrpytd)
+                $ diag = randomshuffle("Watching Netflix  ",0.8,encrypt=encryptd)
                 p  "[diag]"
-                $ diag = randomshuffle("Well i find it boring.  ",0.8,encrpyt=encrpytd)
+                $ diag = randomshuffle("Well i find it boring.  ",0.8,encrypt=encryptd)
                 g1 "[diag]"
-                $ diag = randomshuffle("Guess we agree to disagree.  ",0.8,encrpyt=encrpytd)
+                $ diag = randomshuffle("Guess we agree to disagree.  ",0.8,encrypt=encryptd)
                 p  "[diag]"
 
             #Dhwani indifferent.Confidence level same.
@@ -710,6 +710,8 @@ label start:
         n "Riya , Ananya and Rohit leave for starters. You are alone with Zoya."
 
         $ played_karoake_minigame = False
+        $ encrypt_g3 = False
+        $ weird = False
 
         scene pub2 with dissolve
         show dark hair neu01 with dissolve
@@ -786,58 +788,79 @@ label start:
                 
                 $ confidence_meter -= 10
                 # > Labdhi indifferent.Confidence level lowers.
-                
-        p  "Anyways you got any hobbies ?"
+        if confidence_meter <= 40:
+            $ encrypt_g3 = True
+        $ diag = randomshuffle("Anyways you got any hobbies ?",0.8,encrypt=encrypt_g3)
+        p  "[diag]"
 
         show dark hair neu01 with dissolve
 
-        g3  "I love dancing and singing.Ever since I was a kid, I used to find every opportunity I could, to dance.  "
-        p   "Ohh nice.  "
-        g3  "What about you ?    "
-        p   "Uhh I don't know."
-        g3  "Come on. I am trying to convince myself you are not as lame as you look.    "
+        $ diag = randomshuffle("I love dancing and singing.Ever since I was a kid, I used to find every opportunity I could, to dance.",0.8,encrypt=encrypt_g3)
+        g3  "[diag]"
+        $ diag = randomshuffle("Ohh nice.",0.8,encrypt=encrypt_g3)
+        p  "[diag]"
+        $ diag = randomshuffle("What about you ?    ",0.8,encrypt=encrypt_g3)
+        g3  "[diag]"
+        $ diag = randomshuffle( "Uhh I don't know.",0.8,encrypt=encrypt_g3)
+        p  "[diag]"
+        $ diag = randomshuffle("Come on. I am trying to convince myself you are not as lame as you look.    ",0.8,encrypt=encrypt_g3)
+        g3  "[diag]"
+        $ opt1 = randomshuffle("Uhmm. Nothing much really. Watching Netflix I guess?",0.75,encrypt=encrypt_g3)
+        $ opt2 = randomshuffle("I did do some acting in school. I guess you could count that.",0.85,encrypt=encrypt_g3)
+        $ opt3 = randomshuffle(" Uhmm. Does playing cricket count? He he",encrypt=encrypt_g3)
         
 
         menu:
 
-            "Uhmm. Nothing much really. Watching Netflix I guess?":
+            "[opt1]":
                 
-                g3  "What's your favorite show there?     "
+                $ diag = randomshuffle("What's your favorite show there?",0.9,encrypt=encrypt_g3)
+                g3  "[diag]"
                 p  "Stranger Things. It's just ...  "
                 
                 show dark hair smi01 with dissolve
                 
-                g3  "(impressed). so cuuuuttttteeeeeee!!!!"
+                $ diag = randomshuffle( "(impressed). so cuuuuttttteeeeeee!!!!",0.9,encrypt=encrypt_g3)
+                g3  "[diag]"
                 p  "Uhm yeah, you could say that as well.  "
-                g3  "Though it's not much of a hobby. Unless you can win a quiz based on Netflix.  "
+                $ diag = randomshuffle( "Though it's not much of a hobby. Unless you can win a quiz based on Netflix.",0.9,encrypt=encrypt_g3)
+                g3  "[diag]"
                 p  "Maybe I could. I don't know"
             
                 $ confidence_meter += 5
             
 
-            "I did do some acting in school. I guess you could count that.":
+            "[opt2]":
                 
                 show dark hair smi01 with dissolve
                 
                 g3  "Wow you mean like school plays.Yeah i used to be the star in them..    "
-                p  "I wasnt any great. A bit here and there.     "
+                $ diag = randomshuffle( "I wasnt any great. A bit here and there.     ",0.9,encrypt=encrypt_g3)
+                p  "[diag]"
                 g3  "Well as an accomplished actress I can tell you it's not about the role, it's about how you perform it.  "
-                p  "uhh umm Yeah I guess you are right.   "
+                $ diag = randomshuffle( "uhh umm Yeah I guess you are right.   ",0.9,encrypt=encrypt_g3)
+                p  "[diag]"
+                
                 g3  "To be honest, I didn't think you would be involved in acting."
-                p  "No no, just a bit. He he     "
+                $ diag = randomshuffle( "No no, just a bit. He he ",0.9,encrypt=encrypt_g3)
+                p  "[diag]"
 
                 # > Show Khushi smiling. Confidence increases.
 
                 $ confidence_meter += 10
 
 
-            " Uhmm. Does playing cricket count? He he":
+            "[opt3]":
 
-                
-                g3 "(unimpressed). Oh I just looovvveeee Virat Kohli.   "
+                $ diag = randomshuffle( "(unimpressed). Oh I just looovvveeee Virat Kohli.   ",0.8,encrypt=encrypt_g3)
+                g3 "[diag]"
+                # $ diag = randomshuffle( "No no, just a bit. He he ",0.9,encrypt=encrypt_g3)
                 p  "Yeah he is such a good batsman. It's a strugg....    "
+                # $ diag = randomshuffle( "No no, just a bit. He he ",0.9,encrypt=encrypt_g3)
                 g3  "He is so cute. I am so jealous of Anushka."
-                p  "You just like him because he is cute ?"
+                $ diag = randomshuffle( "You just like him because he is cute ?",0.8,encrypt=encrypt_g3)
+                p  "[diag]"
+                # $ diag = randomshuffle( "No no, just a bit. He he ",0.9,encrypt=encrypt_g3)
                 show dark hair ann02
                 g3  "Duh. Also his abbs. OMGGGG!!!!"
 
@@ -864,11 +887,11 @@ label start:
         n  "It's all coming back the jeering, taunts and bullying that you had to face the entire year. That was the year when you developed the stutter."
         
         # Scene change - present
-        scene pub2 with fade:
-            xpan 0
-            linear 2.0 xpan 360
-            repeat
-        show dark hair smi01 at xy
+        # scene pub2 with fade:
+        #     xpan 0
+        #     linear 2.0 xpan 360
+        #     repeat
+        # show dark hair smi01 at xy
         g3 "Come on let's go for karaoke ?"
         
         menu:
@@ -895,26 +918,56 @@ label start:
                 p   "No .. N .. No I don't want to do ka .. kara..oke. I don't like it at all."
 
                 $ confidence_meter -= 10
-
-        scene pub2 with fade
+        if confidence_meter > 40:
+            $ encrypt_g3 = False
+        if confidence_meter < 30:
+            $ weird = True
+        
+        if  weird  == True:
+            scene pub2 with fade:
+                xpan 0
+                linear 2.0 xpan 360
+                repeat
+            show dark hair ann01 at xy
+        else:
+            scene pub2 with fade
+        
+            show dark hair ann01 with dissolve
+        
         p  "Anyways, umm "
         
-        show dark hair ann01
-        g3  "What? You take hella lot of time to say things.    "
-        p  "So what's your cheat day meal like?   "
         
-        show dark hair neu03
-        g3  "(surprised) Hmm Interesting. Didn't see that one coming."
+        $ diag = randomshuffle( "What? You take hella lot of time to say things.",0.8,encrypt=encrypt_g3)
+        g3  "[diag]"
+        p  "So what's your cheat day meal like?   "
+        if  weird  == True:
+            scene pub2 with fade:
+                xpan 0
+                linear 2.0 xpan 360
+                repeat
+            show dark hair neu03 at xy
+        else:
+            show dark hair neu03 with dissolve
+        
+        $ diag = randomshuffle("(surprised) Hmm Interesting. Didn't see that one coming.",0.8,encrypt=encrypt_g3)
+        g3  "[diag]"
         p  "So? Pizza?   "
         g3  "(embarassed) Actually it's chole bhature. he he"
-    
+        $ opt1 = randomshuffle("My mom used to make the best chole bhature.",0.75,encrypt=encrypt_g3)
+        $ opt2 = randomshuffle("Wow. My turn to say didn't see that one coming ",0.85,encrypt=encrypt_g3)
+        $ opt3 = randomshuffle("And Rajma chawal? he he",encrypt=encrypt_g3)
+        if encrypt_g3 != False:
+            $ style.say_dialogue = style.edited
         menu:
 
-            "My mom used to make the best chole bhature.":
-                            
-                g3 "Everyone's Mom does the best cooking. I'm sorry 'used to' ?    "
-                p  "Ah yeah. Well she left me some years back. I don't even know if she is dead or alive.    "
-                p  "Sorry, don't bother yourself  "
+            "[opt1]":
+                $ diag = randomshuffle("Everyone's Mom does the best cooking. I'm sorry 'used to' ?",0.8,encrypt=encrypt_g3)            
+                g3 "[diag]"
+                $ diag = randomshuffle("Ah yeah. Well she left me some years back. I don't even know if she is dead or alive.",0.8,encrypt=encrypt_g3)
+                p  "[diag]"
+                $ diag = randomshuffle("Sorry, don't bother yourself  ",0.8,encrypt=encrypt_g3)
+                p  "[diag]"
+                $ style.say_dialogue = style.normal
                 show dark hair sad01
                 g3  "Oh I'm sorry. I didn't know.    "
                 g3  "To be honest, I kind of understand how you feel.  "
@@ -929,14 +982,16 @@ label start:
                 # > Confidence boost. Show Khushi blushing. 
 
 
-            "Wow. My turn to say didn't see that one coming ":
-                
-                g3  "What?     "
-                p  "I didn't expect you to say that that's all?     "
+            "[opt2]":
+                $ diag = randomshuffle("What?",0.7,encrypt=encrypt_g3)
+                g3  "[diag]"
+                $ diag = randomshuffle("I didn't expect you to say that that's all?",0.7,encrypt=encrypt_g3)
+                p  "[diag]"
                 
                 show dark hair ang
                 g3  "(shouting)I am an INDIAN GIRL at hearttttt.   "
-                p   "uhh yeah sure."
+                $ diag = randomshuffle("uhh yeah sure.",0.7,encrypt=encrypt_g3)
+                p   "[diag]"
                 
                 n  "That's cringy"
                 # > > (Khushi indifferent) Confidence lowers
@@ -944,18 +999,22 @@ label start:
                 $ confidence_meter -= 5
 
 
-            "And Rajma chawal? he he":
+            "[opt3]":
 
                 show dark hair smi01 with dissolve
                 g3 "Ya that toooo.  "
-                p  "So how often do you get to eat ?  "
+                $ diag = randomshuffle("So how often do you get to eat ?  ",0.6,encrypt=encrypt_g3)
+                p  "[diag]"
+                $ style.say_dialogue = style.normal
                 g3  "Once every 2-3 months.    "
-                p  "uhh. Wow, you have my respect. Unbelievable.  "
+                $ diag = randomshuffle("uhh. Wow, you have my respect. Unbelievable.",0.9,encrypt=encrypt_g3)
+                p  "[diag]"
 
                 #> Khushi happy.Confidence level increases.
                 $ confidence_meter += 5
-    
-    
+        $ style.say_dialogue = style.normal
+        scene pub2 with fade
+        show dark hai neu01
     
         if confidence_meter >= 35:
             call win_ending pass(girl = g3)
