@@ -9,11 +9,12 @@ init python:
             output += random.choice(nonunicode)
         return output
 
-    def randomshuffle(dialogue, prob=0.9):
+    def randomshuffle(dialogue, prob=0.9,encrypt=False):
         
         ss = list(dialogue)
-        for i, j in enumerate(ss):
-            if random.random() > prob:
-                if ss[i] != " ":
-                    ss[i] = random.choice(nonunicode)
+        if encrypt:
+            for i, j in enumerate(ss):
+                if random.random() > prob:
+                    if ss[i] != " ":
+                        ss[i] = random.choice(nonunicode)
         return "".join(ss)
