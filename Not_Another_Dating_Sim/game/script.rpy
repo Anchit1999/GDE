@@ -18,6 +18,8 @@ define g3 = Character("Zoya") # dark hair
 
 label start:
 
+    play music "sounds/bgm/2.ogg"
+
     $ confidence_meter = 50
 
     n "Hi, welcome to our humble game. Before you begin please tell us your name."
@@ -33,6 +35,9 @@ label start:
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 
+    stop music fadeout 1.0
+    play music "sounds/bgm/backstorybg.mp3"
+
     scene startdark
 
     n "Another gloomy day beckons , ready to witness the same old story again. The sun rising in the east and setting in the west."
@@ -43,8 +48,13 @@ label start:
     n "Well Rohit has asked me to meet at McLaren Pub. Perhaps I should go ... , he is a good guy and I need to come out of this sad depressing shell."
     n "Yeah , you know what I will go."
 
+    stop music fadeout 1.0
+
+    play music "sounds/bgm/3.ogg"
+
     scene pub2
 
+    
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
@@ -169,6 +179,7 @@ label start:
     hide male smi02
     label selectgirl:
 
+        play music "sounds/bgm/4.ogg"
         n " Which girl do you wanna talk to more ?"
 
         menu:
@@ -181,10 +192,13 @@ label start:
 
             "Zoya":
                 jump g3_story
-
+        
+        stop music fadeout 1.0
+    
     # g1_story
     label g1_story:
 
+        play music "sounds/bgm/3.ogg"
         $ played_pong_minigame = False
         
         # show g1 neutral
@@ -308,6 +322,9 @@ label start:
 
         ## Flash_Back
         # Scene change - arcade game.
+        stop music fadeout 1.0
+        play music "sounds/bgm/backstorybg.mp3"
+
         scene arcade1 with Pixellate(2.0,5)
         n  "Your thoughts turn back to 26.05.2008 the last truly happy day of your life. Your parents had taken you out to a gaming arcade for your 11th birthday."
 
@@ -322,8 +339,12 @@ label start:
         # Scene change - present
         scene pub2 with fade
         show pink hair smile01 with dissolve
+        stop music fadeout 1.0
+        play music "sounds/bgm/3.ogg" 
+        
         g1 "Hey you still here , come on let's go."
         
+
         menu:
             
             "Yes":
@@ -396,6 +417,7 @@ label start:
                 p  "[diag]"
 
             #Dhwani indifferent.Confidence level same.
+        stop music fadeout 1.0
         
         $ style.say_dialogue = style.normal
         if confidence_meter >= 35:
@@ -407,6 +429,8 @@ label start:
 
 
     label g2_story:
+
+        play music "sounds/bgm/3.ogg"
 
         n "Ananya, Zoya and Rohit leave for starters. You are alone with Riya."
 
@@ -441,6 +465,7 @@ label start:
 
         label convo_start:
         if really_bad_choice == True:
+            play music "sounds/bgm/hatestory.mp3"
             scene pub2 red
             show ros_ikaria2 with dissolve 
             g2  "Yeah it's not easy. Really stressful. "
@@ -486,6 +511,7 @@ label start:
                     show ros_ikaria2g with dissolve
                     g2 "Wow, what sort of monster parents grew up such a child"
                     call loss_ending(girl = g2)
+                    stop music fadeout 1.0
                     jump the_end_sad
                 # > Show Dhwani excited. Confidence becomes little better
 
@@ -588,7 +614,9 @@ label start:
         show ros_defa1 with dissolve
         p  "Hey what's that popping out of your coat pocket?"
         g2  "Ah this thing , it's a sliding puzzle. I use it as a stress-buster. Do you wanna try it ?"  
-        
+        stop music fadeout 1.0
+
+        play music "sounds/bgm/backstorybg.mp3"
         # Relevant cutscene backstory
         scene pub2 with fade
         n  "Stress buster huh , well I wish I had something of this sorts when I was younger "
@@ -601,6 +629,10 @@ label start:
 
         scene pub2 with fade
         show ros_defa1 with dissolve
+        stop music fadeout 1.0
+        
+        play music "sounds/bgm/3.ogg"
+        
         $ style.say_dialogue = style.edited
         g2 "Hello !! , Earth to [name] , Earth to [name]. Do you wanna try it."
         $ style.say_dialogue = style.normal
@@ -696,6 +728,9 @@ label start:
                 
                 $ confidence_meter -= 10
                 # > Labdhi indifferent Confidence level lowers.
+        
+        stop music fadeout 1.0
+        
         $ style.say_dialogue = style.normal
         if confidence_meter >= 35:
             call win_ending pass(girl = g2)
@@ -706,7 +741,8 @@ label start:
 
     label g3_story:
         
-        
+        play music "sounds/bgm/3.ogg"
+
         n "Riya , Ananya and Rohit leave for starters. You are alone with Zoya."
 
         $ played_karoake_minigame = False
@@ -738,7 +774,7 @@ label start:
                 
                 g3  "If the fans turn on you, then it's really hard to gain back their trust.    "
                 p  "True that. I guess all celebrities must feel that way.   "
-                g3  "That's right. So why don't you do me a favor and follow me on Tiktok. My handle is cutiepie.   "
+                g3  "That's right. So why don't you do me a favor and follow me on Tiktok. My handle is zoya_rocks.   "
                 p  "umm uhh.    "
                 show dark hair ann01
                 g3  "Gosh you aren't on TikTok are you?  "
@@ -846,7 +882,9 @@ label start:
         
         show dark hair smi01
         g3  "Hey is that music I hear , Come on let's go and try out karaoke"
+        stop music fadeout 1.0
 
+        play music "sounds/bgm/backstorybg.mp3"
         # scene pub2
 
         ## Flash_Back
@@ -863,12 +901,15 @@ label start:
         scene bully with fade
         n  "It's all coming back the jeering, taunts and bullying that you had to face the entire year. That was the year when you developed the stutter."
         
+
         # Scene change - present
         scene pub2 with fade:
             xpan 0
             linear 2.0 xpan 360
             repeat
         show dark hair smi01 at xy
+        stop music
+
         g3 "Come on let's go for karaoke ?"
         
         menu:
@@ -895,7 +936,9 @@ label start:
                 p   "No .. N .. No I don't want to do ka .. kara..oke. I don't like it at all."
 
                 $ confidence_meter -= 10
-
+        
+        play music "sounds/bgm/3.ogg"
+        
         scene pub2 with fade
         p  "Anyways, umm "
         
@@ -955,7 +998,7 @@ label start:
                 #> Khushi happy.Confidence level increases.
                 $ confidence_meter += 5
     
-    
+        stop music fadeout 1.0
     
         if confidence_meter >= 35:
             call win_ending pass(girl = g3)
@@ -967,7 +1010,7 @@ label start:
 
     
     label win_ending(girl):
-
+        play music "sounds/bgm/8.ogg"
         if girl == g1:
             show pink hair smile04
         if girl == g2:
@@ -989,6 +1032,7 @@ label start:
         return
 
     label loss_ending(girl):
+        play music "sounds/bgm/monika-end.ogg"
         scene bar_exit
         if girl == g1:
             show pink hair neutral02
