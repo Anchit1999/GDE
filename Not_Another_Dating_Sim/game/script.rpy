@@ -314,7 +314,7 @@ label start:
                 #> Dhwani all red. Confidence skyrockets. Can show bit of shivering
 
         $ encrpytd = False
-        if encrpytd <= 35:
+        if confidence_meter <= 35:
             $ encrpytd = True
         show pink hair smile01 with dissolve
         
@@ -366,25 +366,25 @@ label start:
         scene pub2 with fade
         show pink hair neutral01 with dissolve
         
-        $ diag = randomshuffle("Anyways what do you like to do on a lazy afternoon?")
+        $ diag = randomshuffle("Anyways what do you like to do on a lazy afternoon?",encrpyt=encrpytd)
         p  "[diag]"
-        $ diag = randomshuffle("I like to drink coffee and read a book.  ")
+        $ diag = randomshuffle("I like to drink coffee and read a book.  ",encrpyt=encrpytd)
         g1 "[diag]"
 
-        $ opt1 = randomshuffle("Me too. I love to read as well.",0.75)
-        $ opt2 = randomshuffle("Hmm. Chetan Bhagat am I right ?",0.85)
-        $ opt3 = randomshuffle("That's so borrriiinnnnggg.")
+        $ opt1 = randomshuffle("Me too. I love to read as well.",0.75,encrpyt=encrpytd)
+        $ opt2 = randomshuffle("Hmm. Chetan Bhagat am I right ?",0.85,encrpyt=encrpytd)
+        $ opt3 = randomshuffle("That's so borrriiinnnnggg.",encrpyt=encrpytd)
         $ style.say_dialogue = style.edited
         menu:
             "[opt1]":
                 show pink hair smile01 with dissolve
-                $ diag = randomshuffle("Wow, what do you read ?",0.8)
+                $ diag = randomshuffle("Wow, what do you read ?",0.8,encrpyt=encrpytd)
                 g1 "[diag]"
-                $ diag = randomshuffle("Well I like to read biographies. My favourite was the one on Steve Jobs by Walter Issacson.",0.8)
+                $ diag = randomshuffle("Well I like to read biographies. My favourite was the one on Steve Jobs by Walter Issacson.",0.8,encrpyt=encrpytd)
                 p  "[diag]"
-                $ diag = randomshuffle("Oh I like to read about the Mughal Period.",0.8)
+                $ diag = randomshuffle("Oh I like to read about the Mughal Period.",0.8,encrpyt=encrpytd)
                 g1  "[diag]"
-                $ diag = randomshuffle("Guess we are alike on this one.",0.8)
+                $ diag = randomshuffle("Guess we are alike on this one.",0.8,encrpyt=encrpytd)
                 p  "[diag]"
                 show pink hair smile03 with dissolve
                 $ confidence_meter += 10
@@ -393,12 +393,12 @@ label start:
             "[opt2]":
                 
                 show pink hair annoyed01 with dissolve
-                $ diag = randomshuffle("Well I don't like his novels.",0.8)
+                $ diag = randomshuffle("Well I don't like his novels.",0.8,encrpyt=encrpytd)
                 g1  "[diag]"
-                $ diag = randomshuffle("Wow, you have a really poor choice in authors.",0.8)
+                $ diag = randomshuffle("Wow, you have a really poor choice in authors.",0.8,encrpyt=encrpytd)
                 p   "[diag]"
                 show pink hair ang01 with dissolve
-                $ diag = randomshuffle("Oh really.",0.8)
+                $ diag = randomshuffle("Oh really.",0.8,encrpyt=encrpytd)
                 g1 "[diag]"
                 $ confidence_meter -= 10
 
@@ -407,13 +407,13 @@ label start:
 
             "[opt3]":
 
-                $ diag = randomshuffle("Ok then what do you like?  ",0.8)
+                $ diag = randomshuffle("Ok then what do you like?  ",0.8,encrpyt=encrpytd)
                 g1 "[diag]"
-                $ diag = randomshuffle("Watching Netflix  ",0.8)
+                $ diag = randomshuffle("Watching Netflix  ",0.8,encrpyt=encrpytd)
                 p  "[diag]"
-                $ diag = randomshuffle("Well i find it boring.  ",0.8)
+                $ diag = randomshuffle("Well i find it boring.  ",0.8,encrpyt=encrpytd)
                 g1 "[diag]"
-                $ diag = randomshuffle("Guess we agree to disagree.  ",0.8)
+                $ diag = randomshuffle("Guess we agree to disagree.  ",0.8,encrpyt=encrpytd)
                 p  "[diag]"
 
             #Dhwani indifferent.Confidence level same.
@@ -436,7 +436,8 @@ label start:
 
         $ played_puzzle_minigame = False
         $ really_bad_choice = False
-        
+        $ encrypt_g2 = False
+        $ weird = False
         scene pub2 with dissolve
         
 
@@ -530,53 +531,86 @@ label start:
 
                 $ confidence_meter -= 10
         # scene pub2
+        if confidence_meter <= 40:
+            $ encrypt_g2 = True
         show ros_defa1 with dissolve
-        p  "Anyways you got any hobbies? "
-        g2  "Yeah I like travelling. I recently travelled to the States.  "
-        p  "uhh which states?  "
-        g2  "United States of America stupid.    "
-        p  "Oh my bad. Is that how they say it? He he."
-        g2  "What about you?"
+        $ diag = randomshuffle("Anyways you got any hobbies? ",encrypt=encrypt_g2)
+        p  "[diag]"
+        $ diag = randomshuffle("Yeah I like travelling. I recently travelled to the States.",encrypt=encrypt_g2)
+        
+        g2  "[diag]"
+        $ diag = randomshuffle("uhh which states?  ",encrypt=encrypt_g2)
+        
+        p  "[diag]"
+        $ diag = randomshuffle("United States of America stupid.",encrypt=encrypt_g2)
+        
+        g2  "[diag]"
+        $ diag = randomshuffle("Oh my bad. Is that how they say it? He he.",encrypt=encrypt_g2)
+        
+        p  "[diag]"
+        $ diag = randomshuffle("What about you?",encrypt=encrypt_g2)
+        g2  "[diag]"
 
+        $ opt1 = randomshuffle("Uhmm. Nothing much really. Watching Netflix I guess?",0.75,encrypt=encrypt_g2)
+        $ opt2 = randomshuffle("Well me too. Though I haven't really gone beyond the shores yet.",0.85,encrypt=encrypt_g2)
+        $ opt3 = randomshuffle(" Uhmm. Does playing cricket count? He he",encrypt=encrypt_g2)
+        if encrypt_g2 != False:
+            $ style.say_dialogue = style.edited
         menu:
 
-            "Uhmm. Nothing much really. Watching Netflix I guess?":
+            "[opt1]":
                 hide ros_defa1
                 show ros_ikaria3 with dissolve
-                g2  "Wow. Don't you get bored ?    "
-                p  "uhmm there are good shows like sacred games,etc. So keeps me busy.  "
-                g2  "(unimpressed).Hmm sure"
+                $ diag = randomshuffle("Wow. Don't you get bored ?",0.7,encrypt=encrypt_g2)
+                g2  "[diag]"
+                $ diag = randomshuffle("uhmm there are good shows like sacred games,etc. So keeps me busy.",0.7,encrypt=encrypt_g2)
+                
+                p  "[diag]"
+                $ diag = randomshuffle("(unimpressed).Hmm sure",0.7,encrypt=encrypt_g2)
+                
+                g2  "[diag]"
 
                 $ confidence_meter -= 10
                 # > > > Confidence hit. Show labdhi unimpressed. 
  
 
-            "Well me too. Though I haven't really gone beyond the shores yet.":
+            "[opt2]":
                 hide ros_defa1
                 show ros_waraia1 with dissolve
-                g2 " Well I haven't roamed around India much. What's your favorite place.    "
-                p " I like mountains. I find Manali to be quite nice.    "
-                g2 " Yeah but still it's so lame unlike the Alps.  "
-                p " Maybe. Every place has it's own charm. So...  "
-                g2 "Yeah but still everything foreign is so much better."
+                $ diag = randomshuffle(" Well I haven't roamed around India much. What's your favorite place.",0.7,encrypt=encrypt_g2)
+                g2 "[diag]"
+                $ diag = randomshuffle(" I like mountains. I find Manali to be quite nice.",0.7,encrypt=encrypt_g2)
+                p "[diag]"
+                $ diag = randomshuffle(" Yeah but still it's so lame unlike the Alps.  ",0.7,encrypt=encrypt_g2)
+                
+                g2 "[diag]"
+                $ diag = randomshuffle(" Maybe. Every place has it's own charm. So...  ",0.7,encrypt=encrypt_g2)
+                p "[diag]"
+                $ diag = randomshuffle("Yeah but still everything foreign is so much better.",0.7,encrypt=encrypt_g2)
+                g2 "[diag]"
 
                 $ confidence_meter -= 5
 
                 # > Show excited. Confidence becomes little lower
 
 
-            " Uhmm. Does playing cricket count? He he":
+            "[opt3]":
                 
                 hide ros_defa1
                 show ros_ikaria3 with dissolve
-                g2 "(unimpressed).Typical Indian hobby.   "
-                p  "Well it's fun. Did you follow the world cup?    "
-                g2  "Yeah Yeah a bit. Everyone was following so I saw a bit.  "
-                p  "You don't follow any sports ?  "
-                g2  "Not really. Work takes up all my time."
+                $ diag = randomshuffle("(unimpressed).Typical Indian hobby.",0.7,encrypt=encrypt_g2)
+                g2 "[diag]"
+                $ diag = randomshuffle("Well it's fun. Did you follow the world cup?",0.7,encrypt=encrypt_g2)
+                p  "[diag]"
+                $ diag = randomshuffle("Yeah Yeah a bit. Everyone was following so I saw a bit.  ",0.7,encrypt=encrypt_g2)
+                g2  "[diag]"
+                $ diag = randomshuffle("You don't follow any sports ?",0.7,encrypt=encrypt_g2)
+                p  "[diag]"
+                $ diag = randomshuffle("Not really. Work takes up all my time.",0.7,encrypt=encrypt_g2)
+                g2  "[diag]"
 
                 $ confidence_meter += 5
-        
+        $ style.say_dialogue = style.normal
         show ros_defa1 with dissolve
         p  "Hey what's that popping out of your coat pocket?"
         g2  "Ah this thing , it's a sliding puzzle. I use it as a stress-buster. Do you wanna try it ?"  
@@ -599,8 +633,10 @@ label start:
         
         play music "sounds/bgm/3.ogg"
         
+        $ style.say_dialogue = style.edited
         g2 "Hello !! , Earth to [name] , Earth to [name]. Do you wanna try it."
-
+        $ style.say_dialogue = style.normal
+        
         menu:
             
             "Yes":
@@ -619,58 +655,83 @@ label start:
                 g2  "Come on don't be a spoilsport."
                 p   "No I don't want to do it. I don't like it at all."
 
-                $ confidence_meter -= 10
+                $ confidence_meter -= 20
         scene pub2 with fade
-
-        show ros_defa1 with dissolve
-        p  "So what's your favorite movie?"
-        g2  "Oh I love rom coms and sci-fi. So my favurite movies are Princess Diaries and Interstellar.  "
-        p  "Nice. Yeah even like I to watch movies.  "
-        g2  "Oh what's your favourite one?"
+        if confidence_meter > 40:
+            $ encrypt_g2 = False
+        if confidence_meter < 30:
+            $ weird = True
         
+        if  weird  == True:
+            scene pub2 with fade:
+                xpan 0
+                linear 2.0 xpan 360
+                repeat
+            show ros_defa1 at xy
+        else:
+            show ros_defa1 with dissolve
+        if encrypt_g2 != False:
+            $ style.say_dialogue = style.edited
+        $ diag = randomshuffle("So what's your favorite movie?",0.6,encrypt=encrypt_g2)
+        p  "[diag]"
+        $ diag = randomshuffle("Oh I love rom coms and sci-fi. So my favurite movies are Princess Diaries and Interstellar.",0.6,encrypt=encrypt_g2)
+        g2  "[diag]"
+        $ diag = randomshuffle("Nice. Yeah even like I to watch movies.  ",0.6,encrypt=encrypt_g2)
+        p  "[diag]"
+        $ diag = randomshuffle("Oh what's your favourite one?",0.6,encrypt=encrypt_g2)
+        g2  "[diag]"
+        $ opt1 = randomshuffle("Well I loved Koi Mil Gaya. It really inspired me as a kid.",0.75,encrypt=encrypt_g2)
+        $ opt2 = randomshuffle("My favourite is Iron Man",0.85,encrypt=encrypt_g2)
+        $ opt3 = randomshuffle("I liked Hera Pheri.",encrypt=encrypt_g2)
         menu:
 
-            "Well I loved Koi Mil Gaya. It really inspired me as a kid.":
-                
-                g2  "Interesting. It's basically a ripoff of ET, but sure."
+            "[opt1]":
+                $ diag = randomshuffle("Interesting. It's basically a ripoff of ET, but sure.",0.8,encrypt=encrypt_g2)
+                g2  "[diag]"
                 p  "Actually that's not entirely true. It was initially a plan of Satyajit Ray in collaboration with some American production house. Then those guys actually leaked the script to Steven Spielberg.  ?"
                 p  "Even Rakesh Roshan mentioned it in his press conference.  ?"
                 hide ros_defa1
                 show ros_akuwaraia1 with dissolve
-                g2  "I have to say, i didn't see that one coming.    ?"
+                $ diag = randomshuffle("I have to say, i didn't see that one coming.",0.8,encrypt=encrypt_g2)
+                g2  "[diag]"
                 p  "Actually it's a shame as to how often we Indian's don't get credit. Radio, Airplanes, the list goes on. ?"
-                g2  "(embarrased) I feel embarassed  not to know about this.?"
-                            
-
+                $ diag = randomshuffle("(embarrased) I feel embarassed to not know about this.",0.8,encrypt=encrypt_g2)
+                g2  "[diag]"
                 $ confidence_meter += 10
                 # > Confidence boost. Show Labdhi blushing. 
 
 
-            "My favourite is Iron Man":
-                
-                g2  "Oh so you are one of those Marvel fanboys.    "
-                p  "It's not just that. It inspired a young kid to become an engineer and is pretty entertaining  "
-                g2  "You aren't wrong there to be honest.        "
+            "[opt2]":
+                $ diag = randomshuffle("Oh so you are one of those Marvel fanboys.",0.8,encrypt=encrypt_g2)
+                g2  "[diag]"
+                $ diag = randomshuffle("It's not just that. It inspired a young kid to become an engineer and is pretty entertaining  ",0.8,encrypt=encrypt_g2)
+                p  "[diag]"
+                $ diag = randomshuffle("You aren't wrong there to be honest.",0.8,encrypt=encrypt_g2)
+                g2 "[diag]" 
                
                 $ confidence_meter -= 5
 
                 # > (Labdhi indifferent Confidence a bit high
 
 
-            "I liked Hera Pheri.":
+            "[opt3]":
 
                 hide ros_defa1
                 show ros_ikaria3 with dissolve
+
                 g2 "Isn't it a bit too forced and misogynist.  "
-                p  "Well, the idea of a movie is to entertain and it's a good light hearted one watch.  "
+                $ diag = randomshuffle("Well, the idea of a movie is to entertain and it's a good light hearted one watch.  ",0.8,encrypt=encrypt_g2)
+                p  "[diag]"
                 g2 "Still, I think there shouldn't be any room for regressive thoughts.    "
-                p  "Guess we agree to disagree. He he"
+                $ diag = randomshuffle("Guess we agree to disagree. He he",0.8,encrypt=encrypt_g2)
+                p  "[diag]"
                 
                 $ confidence_meter -= 10
                 # > Labdhi indifferent Confidence level lowers.
         
         stop music fadeout 1.0
         
+        $ style.say_dialogue = style.normal
         if confidence_meter >= 35:
             call win_ending pass(girl = g2)
             jump the_end_happy
@@ -1061,3 +1122,10 @@ transform xy:
         linear 1.0 alpha 1.0
         # pause .5
     repeat
+transform wobbly:
+    xtile 3
+    xzoom .75 yzoom 1.25
+    linear 1.0 xzoom 1.25 yzoom .75
+    linear 1.0 xzoom .75 yzoom 1.25
+    repeat
+ 
