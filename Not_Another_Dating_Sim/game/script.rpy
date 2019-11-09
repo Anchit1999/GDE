@@ -51,12 +51,16 @@ label start:
 
 
     show male smi01 with dissolve
-
+    # $ style.say_dialogue = style.edited
+    # $ gtext = randomshuffle("And here we are celebrating my friend Rohit's work anniversary")
+       
+    # p "[gtext]"
+    # $ style.say_dialogue = style.normal
     n "And here we are celebrating my friend Rohit's work anniversary"    
 
     r "Hey man why so serious? It's been such a hectic couple of months and I just want to relax today."
 
-    p "(nervously) Hey I am really happy for you, it's just I don't like being with so many people."
+    p "(nervously) Hey I am really happy for you, it's just I don't like being with so many people." with vpunch
     
     r "Come on, Loosen up. What the ..."
     
@@ -83,7 +87,7 @@ label start:
     show male sly02 with dissolve
     r "Arre why are you so concerned?" 
   
-    p "(stuttering) I have avoided all humanity uptill now and you want me to talk to three strangers."
+    p "(stuttering) I have avoided all... humanity uptill... now and.. you want.... me to talk.... to three strangers."
     # with Fade(5.0) zorder 10
     show blackflash zorder 50
     # > p shaking. Depict by bluring the screen or something
@@ -146,7 +150,7 @@ label start:
     p "Sorry I don't know you. But I feel I have seen you somewhere. "
 
     show dark hair ang at dhz1
-    g3 "(tad angry) Zoya. I'm in the UNESCO Ad that everyone has been talking about. Gosh have you not followed my Instagram page alreadyyyyy."
+    g3 "Zoya. I'm in the UNESCO Ad that everyone has been talking about. Gosh have you not followed my Instagram page alreadyyyyy."
     show dark hair ang at dhz2
 
     show male smi02 at mz1
@@ -295,7 +299,11 @@ label start:
 
                 #> Dhwani all red. Confidence skyrockets. Can show bit of shivering
 
+        $ encrpytd = False
+        if encrpytd <= 35:
+            $ encrpytd = True
         show pink hair smile01 with dissolve
+        
         g1  "Oh Wow , is that people playing air hockey, come on let's go and play too."
 
         ## Flash_Back
@@ -313,6 +321,7 @@ label start:
         
         # Scene change - present
         scene pub2 with fade
+        show pink hair smile01 with dissolve
         g1 "Hey you still here , come on let's go."
         
         menu:
@@ -335,42 +344,60 @@ label start:
 
         scene pub2 with fade
         show pink hair neutral01 with dissolve
-        p  "Anyways what do you like to do on a lazy afternoon?  "
-        g1 "I like to drink coffee and read a book.  "
+        
+        $ diag = randomshuffle("Anyways what do you like to do on a lazy afternoon?")
+        p  "[diag]"
+        $ diag = randomshuffle("I like to drink coffee and read a book.  ")
+        g1 "[diag]"
 
+        $ opt1 = randomshuffle("Me too. I love to read as well.",0.75)
+        $ opt2 = randomshuffle("Hmm. Chetan Bhagat am I right ?",0.85)
+        $ opt3 = randomshuffle("That's so borrriiinnnnggg.")
+        $ style.say_dialogue = style.edited
         menu:
-
-            "Me too. I love to read as well.":
+            "[opt1]":
                 show pink hair smile01 with dissolve
-                g1  "Wow, what do you read ?"
-                p  "Well I like to read biographies. My favourite was the one on Steve Jobs by Walter Issacson.  "
-                g1  "Oh I like to read about the Mughal Period."
-                p  "Guess we are alike on this one."
+                $ diag = randomshuffle("Wow, what do you read ?",0.8)
+                g1 "[diag]"
+                $ diag = randomshuffle("Well I like to read biographies. My favourite was the one on Steve Jobs by Walter Issacson.",0.8)
+                p  "[diag]"
+                $ diag = randomshuffle("Oh I like to read about the Mughal Period.",0.8)
+                g1  "[diag]"
+                $ diag = randomshuffle("Guess we are alike on this one.",0.8)
+                p  "[diag]"
                 show pink hair smile03 with dissolve
                 $ confidence_meter += 10
                 # > > Confidence boost. Show Dhwani blushing. 
 
-            "Hmm. Chetan Bhagat am I right ?":
+            "[opt2]":
                 
                 show pink hair annoyed01 with dissolve
-                g1  "Well I don't like his novels."
-                p   " Wow, you have a really poor choice in authors."
+                $ diag = randomshuffle("Well I don't like his novels.",0.8)
+                g1  "[diag]"
+                $ diag = randomshuffle("Wow, you have a really poor choice in authors.",0.8)
+                p   "[diag]"
                 show pink hair ang01 with dissolve
-                g1  "Oh really."
+                $ diag = randomshuffle("Oh really.",0.8)
+                g1 "[diag]"
                 $ confidence_meter -= 10
 
                 # > Show Dhwani angry.
 
 
-            "That's so borrriiinnnnggg.":
+            "[opt3]":
 
-                g1 "Ok then what do you like?  "
-                p  "Watching Netflix  "
-                g1  "Well i find it boring.  "
-                p  "Guess we agree to disagree.  "
+                $ diag = randomshuffle("Ok then what do you like?  ",0.8)
+                g1 "[diag]"
+                $ diag = randomshuffle("Watching Netflix  ",0.8)
+                p  "[diag]"
+                $ diag = randomshuffle("Well i find it boring.  ",0.8)
+                g1 "[diag]"
+                $ diag = randomshuffle("Guess we agree to disagree.  ",0.8)
+                p  "[diag]"
 
             #Dhwani indifferent.Confidence level same.
         
+        $ style.say_dialogue = style.normal
         if confidence_meter >= 35:
             call win_ending pass(girl = g1)
             jump the_end_happy
@@ -902,6 +929,13 @@ label start:
         return
 
     label loss_ending(girl):
+        scene bar_exit
+        if girl == g1:
+            show pink hair neutral02
+        if girl == g2:
+            show ros_ikaria3
+        if girl == g3:
+            show dark hair neu03
         girl  "Well, I have to go."
         p  "(low confidence) umm okay."
         return
